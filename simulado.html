@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulados 4º Ano 🎓</title>
+<style>
+  :root{
+    --azul:#2f80ed; --verde:#27ae60; --vermelho:#eb5757;
+    --amarelo:#f2c94c; --roxo:#9b51e0; --bg:#eef4ff;
+  }
+  *{box-sizing:border-box;font-family:'Comic Sans MS','Segoe UI',sans-serif}
+  body{margin:0;background:var(--bg);color:#333}
+  header{background:var(--azul);color:#fff;padding:18px;text-align:center;
+    border-radius:0 0 24px 24px;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+  header h1{margin:0;font-size:26px}
+  .container{max-width:760px;margin:20px auto;padding:0 16px}
+  .card{background:#fff;border-radius:20px;padding:20px;margin-bottom:16px;
+    box-shadow:0 3px 8px rgba(0,0,0,.08)}
+  .btn{border:none;border-radius:16px;padding:14px 22px;font-size:17px;
+    cursor:pointer;color:#fff;font-weight:bold;transition:.15s;margin:6px}
+  .btn:hover{transform:scale(1.05)}
+  .btn-azul{background:var(--azul)} .btn-verde{background:var(--verde)}
+  .btn-roxo{background:var(--roxo)} .btn-amarelo{background:var(--amarelo);color:#333}
+  .opcao{display:block;background:#f4f7fb;border:3px solid transparent;
+    border-radius:14px;padding:14px;margin:8px 0;cursor:pointer;font-size:16px}
+  .opcao:hover{background:#e6eeff}
+  .opcao.sel{border-color:var(--azul);background:#e0ebff}
+  .opcao.certa{border-color:var(--verde);background:#e3f9ec}
+  .opcao.errada{border-color:var(--vermelho);background:#fdeaea}
+  .pergunta{font-size:18px;font-weight:bold;margin-bottom:10px}
+  .tag{display:inline-block;background:var(--amarelo);color:#333;font-size:12px;
+    padding:3px 10px;border-radius:10px;margin-bottom:8px}
+  .feedback{background:#fff8e1;border-left:5px solid var(--amarelo);
+    padding:10px;border-radius:10px;margin-top:10px;font-size:15px}
+  .nota-box{text-align:center;font-size:22px}
+  .estrelas{font-size:40px}
+  .progress{height:16px;background:#e0e0e0;border-radius:10px;overflow:hidden}
+  .progress > div{height:100%;background:var(--verde);transition:.4s}
+  .hist-item{display:flex;justify-content:space-between;padding:10px;
+    border-bottom:1px solid #eee}
+  .hide{display:none}
+  select{padding:10px;border-radius:12px;font-size:16px;border:2px solid var(--azul)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 Simulados 4º Ano</h1>
+  <small>Editora Conquista • Vol. 2</small>
+</header>
+
+<div class="container">
+
+  <!-- TELA INICIAL -->
+  <div id="telaInicio" class="card">
+    <h2>👋 Bem-vindo(a)!</h2>
+    <p>Escolha a matéria e comece seu simulado:</p>
+    <select id="selMateria">
+      <option value="Historia">📜 História</option>
+      <option value="Geografia">🌍 Geografia</option>
+    </select>
+    <br><br>
+    <button class="btn btn-verde" onclick="iniciarSimulado()">🚀 Iniciar Simulado</button>
+    <button class="btn btn-roxo" onclick="verHistorico()">📊 Ver Histórico</button>
+  </div>
+
+  <!-- TELA DA PROVA -->
+  <div id="telaProva" class="hide">
+    <div class="card">
+      <h2 id="tituloProva"></h2>
+      <div class="progress"><div id="barraProg" style="width:0%"></div></div>
+      <p><small id="contador"></small></p>
+    </div>
+    <div id="questoes"></div>
+    <div class="card" style="text-align:center">
+      <button class="btn btn-verde" onclick="enviarProva()">✅ Enviar Prova</button>
+      <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Sair</button>
+    </div>
+  </div>
+
+  <!-- TELA DE RESULTADO -->
+  <div id="telaResultado" class="hide">
+    <div class="card nota-box">
+      <div class="estrelas" id="estrelas"></div>
+      <h2 id="msgNota"></h2>
+      <p id="detalheNota"></p>
+    </div>
+    <div id="gabarito"></div>
+    <div class="card" style="text-align:center">
+      <button class="btn btn-azul" onclick="refazerProva()">🔄 Refazer (trocar questões)</button>
+      <button class="btn btn-verde" onclick="verHistorico()">📊 Histórico</button>
+      <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Início</button>
+    </div>
+  </div>
+
+  <!-- TELA DE HISTÓRICO -->
+  <div id="telaHistorico" class="hide">
+    <div class="card">
+      <h2>📊 Histórico por Matéria</h2>
+      <div id="listaHistorico"></div>
+      <br>
+      <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Início</button>
+      <button class="btn" style="background:var(--vermelho)" onclick="limparHistorico()">🗑️ Limpar tudo</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ============ BANCO DE QUESTÕES ============ */
+const BANCO = {
+  Historia: [
+    {id:1, conteudo_bncc:"EF04HI01 - A ação dos seres humanos no tempo",
+     pergunta:"Quando estudamos História, o que fazemos principalmente?",
+     opcoes:{A:"Inventamos histórias de fantasia.",B:"Estudamos como as pessoas viveram em diferentes tempos.",C:"Aprendemos apenas sobre animais.",D:"Só decoramos datas sem entender nada."},
+     correta:"B", feedback:"A História estuda como os seres humanos viveram e agiram ao longo do tempo, ajudando a entender o passado."},
+
+    {id:2, conteudo_bncc:"O início da vida humana na África",
+     pergunta:"Segundo os estudos, em qual continente surgiram os primeiros seres humanos?",
+     opcoes:{A:"América",B:"Europa",C:"África",D:"Oceania"},
+     correta:"C", feedback:"As pesquisas mostram que os primeiros grupos humanos surgiram no continente africano."},
+
+    {id:3, conteudo_bncc:"Como viviam os primeiros grupos humanos",
+     pergunta:"Como os primeiros grupos humanos conseguiam seu alimento?",
+     opcoes:{A:"Comprando em mercados.",B:"Caçando animais e coletando frutos e raízes.",C:"Plantando em grandes fazendas.",D:"Pedindo comida em restaurantes."},
+     correta:"B", feedback:"Os primeiros humanos eram caçadores e coletores: caçavam animais e coletavam frutos, raízes e sementes."},
+
+    {id:4, conteudo_bncc:"Como viviam os primeiros grupos humanos",
+     pergunta:"Por que os primeiros grupos humanos mudavam bastante de lugar (eram nômades)?",
+     opcoes:{A:"Porque gostavam de passear.",B:"Para procurar comida e água quando faltavam.",C:"Porque tinham carros.",D:"Para visitar parentes distantes."},
+     correta:"B", feedback:"Eles eram nômades porque precisavam se deslocar em busca de alimento e água."},
+
+    {id:5, conteudo_bncc:"A domesticação do fogo",
+     pergunta:"Qual foi uma grande vantagem que o fogo trouxe aos primeiros humanos?",
+     opcoes:{A:"Servia para assistir televisão.",B:"Aquecia, iluminava e ajudava a cozinhar os alimentos.",C:"Não servia para nada.",D:"Só servia para brincar."},
+     correta:"B", feedback:"O domínio do fogo permitiu aquecer-se, iluminar a noite, afastar animais e cozinhar alimentos."},
+
+    {id:6, conteudo_bncc:"A domesticação do fogo",
+     pergunta:"O que significa dizer que o ser humano 'domesticou' o fogo?",
+     opcoes:{A:"Que aprendeu a controlar e usar o fogo.",B:"Que criou o fogo como um animal de estimação.",C:"Que apagou todos os fogos do mundo.",D:"Que tinha medo do fogo."},
+     correta:"A", feedback:"Domesticar o fogo significa que os humanos aprenderam a controlá-lo e usá-lo a seu favor."},
+
+    {id:7, conteudo_bncc:"Caminhada pelo mundo afora",
+     pergunta:"A partir da África, o que os grupos humanos fizeram ao longo de muito tempo?",
+     opcoes:{A:"Ficaram sempre no mesmo lugar.",B:"Espalharam-se por vários continentes do mundo.",C:"Voltaram para o mar.",D:"Desapareceram completamente."},
+     correta:"B", feedback:"Com o tempo, os grupos humanos migraram e se espalharam por diferentes partes do mundo."},
+
+    {id:8, conteudo_bncc:"Caminhada pelo mundo afora",
+     pergunta:"O deslocamento de grupos humanos de um lugar para outro é chamado de:",
+     opcoes:{A:"Migração.",B:"Alimentação.",C:"Domesticação.",D:"Ilustração."},
+     correta:"A", feedback:"Migração é o nome dado ao movimento de pessoas de um lugar para outro."},
+
+    {id:9, conteudo_bncc:"Os primeiros habitantes do território brasileiro",
+     pergunta:"Quem foram os primeiros habitantes do território que hoje é o Brasil?",
+     opcoes:{A:"Os europeus.",B:"Os povos indígenas.",C:"Os astronautas.",D:"Os robôs."},
+     correta:"B", feedback:"Os povos indígenas foram os primeiros a habitar o território brasileiro, muito antes da chegada dos europeus."},
+
+    {id:10, conteudo_bncc:"Os primeiros habitantes do território brasileiro",
+     pergunta:"Os cientistas descobrem como viviam os primeiros habitantes estudando principalmente:",
+     opcoes:{A:"Vestígios como ferramentas, ossos e pinturas rupestres.",B:"Programas de televisão.",C:"Redes sociais da época.",D:"Livros escritos por eles."},
+     correta:"A", feedback:"Como não havia escrita, estudamos vestígios como ferramentas, ossos e pinturas nas rochas (rupestres)."},
+
+    {id:11, conteudo_bncc:"A ação dos seres humanos no tempo",
+     pergunta:"O que são as pinturas rupestres?",
+     opcoes:{A:"Fotos tiradas com celular.",B:"Desenhos feitos por povos antigos nas paredes de cavernas e rochas.",C:"Pinturas modernas em museus.",D:"Placas de trânsito."},
+     correta:"B", feedback:"Pinturas rupestres são desenhos deixados por povos antigos em cavernas e rochas, mostrando seu dia a dia."},
+
+    {id:12, conteudo_bncc:"Como viviam os primeiros grupos humanos",
+     pergunta:"Os primeiros instrumentos usados pelos humanos eram feitos principalmente de:",
+     opcoes:{A:"Plástico.",B:"Vidro.",C:"Pedra, ossos e madeira.",D:"Metal brilhante comprado em lojas."},
+     correta:"C", feedback:"Nos tempos mais antigos, as ferramentas eram feitas de pedra, ossos e madeira."},
+
+    {id:13, conteudo_bncc:"Caminhada pelo mundo afora",
+     pergunta:"Acredita-se que os primeiros humanos chegaram à América vindos:",
+     opcoes:{A:"De outros planetas.",B:"Da Ásia, atravessando por regiões geladas.",C:"Já nasceram na América.",D:"De avião."},
+     correta:"B", feedback:"Muitos estudos indicam que grupos humanos chegaram à América vindos da Ásia, atravessando regiões geladas."},
+
+    {id:14, conteudo_bncc:"A ação dos seres humanos no tempo",
+     pergunta:"Por que é importante estudar como viviam os primeiros grupos humanos?",
+     opcoes:{A:"Para entender de onde viemos e como a vida mudou ao longo do tempo.",B:"Para não fazer nada útil.",C:"Apenas para passar de ano.",D:"Porque é obrigatório e sem sentido."},
+     correta:"A", feedback:"Estudar o passado nos ajuda a entender nossas origens e as transformações da vida humana ao longo do tempo."},
+
+    {id:15, conteudo_bncc:"A domesticação do fogo",
+     pergunta:"Antes de dominar o fogo, como os humanos comiam a carne dos animais caçados?",
+     opcoes:{A:"Assada no forno elétrico.",B:"Crua, sem poder cozinhar.",C:"Congelada.",D:"Em forma de sanduíche."},
+     correta:"B", feedback:"Antes de dominar o fogo, os humanos comiam os alimentos crus, pois não podiam cozinhá-los."}
+  ],
+  Geografia: [
+    {id:1, conteudo_bncc:"Brasil: organização político-administrativa",
+     pergunta:"Como o território brasileiro é dividido politicamente?",
+     opcoes:{A:"Em bairros e ruas apenas.",B:"Em estados, municípios e o Distrito Federal.",C:"Em fazendas e vilas.",D:"Em continentes."},
+     correta:"B", feedback:"O Brasil é organizado em estados, municípios e o Distrito Federal, onde fica a capital, Brasília."},
+
+    {id:2, conteudo_bncc:"Brasil: organização político-administrativa",
+     pergunta:"Quantos estados existem atualmente no Brasil?",
+     opcoes:{A:"10 estados.",B:"20 estados.",C:"26 estados e mais o Distrito Federal.",D:"50 estados."},
+     correta:"C", feedback:"O Brasil possui 26 estados e o Distrito Federal, onde está localizada a capital do país."},
+
+    {id:3, conteudo_bncc:"Brasil: organização político-administrativa",
+     pergunta:"Qual é a capital do Brasil?",
+     opcoes:{A:"São Paulo.",B:"Rio de Janeiro.",C:"Brasília.",D:"Salvador."},
+     correta:"C", feedback:"Brasília, localizada no Distrito Federal, é a capital do Brasil desde 1960."},
+
+    {id:4, conteudo_bncc:"Brasil: organização político-administrativa",
+     pergunta:"A menor divisão do território brasileiro, onde moramos e temos a prefeitura, é o:",
+     opcoes:{A:"Município.",B:"Continente.",C:"Estado.",D:"País."},
+     correta:"A", feedback:"O município é a menor divisão político-administrativa. Cada município tem sua prefeitura e câmara de vereadores."},
+
+    {id:5, conteudo_bncc:"Os três poderes",
+     pergunta:"Quais são os três poderes que organizam o governo do Brasil?",
+     opcoes:{A:"Norte, Sul e Leste.",B:"Executivo, Legislativo e Judiciário.",C:"Escola, família e igreja.",D:"Federal, estadual e local."},
+     correta:"B", feedback:"Os três poderes são: Executivo, Legislativo e Judiciário. Eles trabalham separados para equilibrar o governo."},
+
+    {id:6, conteudo_bncc:"Os três poderes",
+     pergunta:"Qual poder tem como principal função criar as leis?",
+     opcoes:{A:"O Poder Executivo.",B:"O Poder Judiciário.",C:"O Poder Legislativo.",D:"A prefeitura da escola."},
+     correta:"C", feedback:"O Poder Legislativo (vereadores, deputados e senadores) é responsável por criar e votar as leis."},
+
+    {id:7, conteudo_bncc:"Os três poderes",
+     pergunta:"O presidente, os governadores e os prefeitos fazem parte de qual poder?",
+     opcoes:{A:"Poder Executivo.",B:"Poder Legislativo.",C:"Poder Judiciário.",D:"Nenhum poder."},
+     correta:"A", feedback:"O Poder Executivo governa e coloca as leis em prática. É formado por presidente, governadores e prefeitos."},
+
+    {id:8, conteudo_bncc:"Os três poderes",
+     pergunta:"Qual poder é responsável por julgar e fazer a justiça, garantindo que as leis sejam cumpridas?",
+     opcoes:{A:"Poder Legislativo.",B:"Poder Executivo.",C:"Poder Judiciário.",D:"Poder da natureza."},
+     correta:"C", feedback:"O Poder Judiciário é formado pelos juízes e tribunais, que julgam e garantem o cumprimento das leis."},
+
+    {id:9, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
+     pergunta:"O que são órgãos públicos?",
+     opcoes:{A:"Lojas particulares que vendem produtos.",B:"Instituições do governo que prestam serviços à população, como escolas e hospitais.",C:"Casas de pessoas famosas.",D:"Fábricas de brinquedos."},
+     correta:"B", feedback:"Órgãos públicos são instituições mantidas pelo governo para atender a população, como escolas, hospitais e postos de saúde."},
+
+    {id:10, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
+     pergunta:"De que forma um cidadão pode participar das decisões do país?",
+     opcoes:{A:"Votando nas eleições e acompanhando as ações do governo.",B:"Apenas assistindo televisão.",C:"Ficando em silêncio sempre.",D:"Não é possível participar."},
+     correta:"A", feedback:"O cidadão participa votando, opinando, reivindicando melhorias e acompanhando o trabalho dos governantes."},
+
+    {id:11, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
+     pergunta:"O ato de escolher nossos representantes, como prefeitos e presidentes, chama-se:",
+     opcoes:{A:"Passeio.",B:"Voto (eleição).",C:"Recreio.",D:"Compra."},
+     correta:"B", feedback:"Por meio do voto nas eleições, os cidadãos escolhem quem vai representá-los no governo."},
+
+    {id:12, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
+     pergunta:"Um exemplo de serviço público oferecido à população é:",
+     opcoes:{A:"Um shopping particular.",B:"O atendimento em um posto de saúde.",C:"Uma loja de doces.",D:"Um parque de diversões pago."},
+     correta:"B", feedback:"Postos de saúde, escolas públicas e transporte coletivo são exemplos de serviços públicos oferecidos pelo governo."},
+
+    {id:13, conteudo_bncc:"Brasil: regionalização do espaço",
+     pergunta:"Em quantas grandes regiões o Brasil está dividido pelo IBGE?",
+     opcoes:{A:"Duas regiões.",B:"Cinco regiões.",C:"Dez regiões.",D:"Vinte regiões."},
+     correta:"B", feedback:"O Brasil é dividido em 5 regiões: Norte, Nordeste, Centro-Oeste, Sudeste e Sul."},
+
+    {id:14, conteudo_bncc:"Brasil: regionalização do espaço",
+     pergunta:"Quais são as cinco regiões do Brasil?",
+     opcoes:{A:"Norte, Sul, Leste, Oeste e Centro.",B:"Norte, Nordeste, Centro-Oeste, Sudeste e Sul.",C:"Litoral, Serra, Sertão, Campo e Cidade.",D:"Primeira, Segunda, Terceira, Quarta e Quinta."},
+     correta:"B", feedback:"As cinco regiões brasileiras são: Norte, Nordeste, Centro-Oeste, Sudeste e Sul, agrupadas por características em comum."},
+
+    {id:15, conteudo_bncc:"Brasil: regionalização do espaço",
+     pergunta:"Por que o Brasil foi dividido em regiões?",
+     opcoes:{A:"Para agrupar estados que têm características parecidas e facilitar os estudos.",B:"Para deixar o mapa mais bonito.",C:"Porque cada região é um país diferente.",D:"Sem nenhum motivo importante."},
+     correta:"A", feedback:"A regionalização agrupa estados com características naturais, culturais e econômicas parecidas, facilitando estudos e planejamento."}
+  ]
+};
+
+/* ============ ESTADO ============ */
+let materiaAtual = "Historia";
+let questoesAtuais = [];
+const QTD = 8; // questões por simulado (entre 8 e 15)
+
+/* ============ FUNÇÕES ============ */
+function embaralhar(arr){ return [...arr].sort(()=>Math.random()-0.5); }
+
+function sortearQuestoes(){
+  return embaralhar(BANCO[materiaAtual]).slice(0, QTD);
+}
+
+function mostrar(tela){
+  ["telaInicio","telaProva","telaResultado","telaHistorico"]
+    .forEach(t=>document.getElementById(t).classList.add("hide"));
+  document.getElementById(tela).classList.remove("hide");
+  window.scrollTo(0,0);
+}
+
+function iniciarSimulado(){
+  materiaAtual = document.getElementById("selMateria").value;
+  questoesAtuais = sortearQuestoes();
+  renderProva();
+  mostrar("telaProva");
+}
+
+function refazerProva(){
+  questoesAtuais = sortearQuestoes(); // novo sorteio troca questões
+  renderProva();
+  mostrar("telaProva");
+}
+
+function renderProva(){
+  document.getElementById("tituloProva").innerText = "📜 Simulado de "+materiaAtual;
+  const div = document.getElementById("questoes");
+  div.innerHTML = "";
+  questoesAtuais.forEach((q,i)=>{
+    let ops = Object.entries(q.opcoes).map(([l,t])=>
+      `<label class="opcao" onclick="marcar(this,${i})">
+         <input type="radio" name="q${i}" value="${l}" style="display:none">
+         <b>${l})</b> ${t}
+       </label>`).join("");
+    div.innerHTML += `<div class="card">
+        <span class="tag">${q.conteudo_bncc}</span>
+        <div class="pergunta">${i+1}. ${q.pergunta}</div>
+        ${ops}
+      </div>`;
+  });
+  atualizarProgresso();
+}
+
+function marcar(el, idx){
+  el.parentNode.querySelectorAll(".opcao").forEach(o=>o.classList.remove("sel"));
+  el.classList.add("sel");
+  el.querySelector("input").checked = true;
+  atualizarProgresso();
+}
+
+function atualizarProgresso(){
+  let respondidas = questoesAtuais.filter((q,i)=>
+    document.querySelector(`input[name="q${i}"]:checked`)).length;
+  let pct = Math.round(respondidas/questoesAtuais.length*100);
+  document.getElementById("barraProg").style.width = pct+"%";
+  document.getElementById("contador").innerText =
+    `${respondidas} de ${questoesAtuais.length} respondidas`;
+}
+
+function enviarProva(){
+  let respostas = [], acertos = 0;
+  questoesAtuais.forEach((q,i)=>{
+    let sel = document.querySelector(`input[name="q${i}"]:checked`);
+    let marcada = sel ? sel.value : null;
+    let acertou = marcada === q.correta;
+    if(acertou) acertos++;
+    respostas.push({id_questao:q.id, marcada, correta:q.correta, acertou});
+  });
+
+  let naoResp = respostas.filter(r=>!r.marcada).length;
+  if(naoResp>0 && !confirm(`Você deixou ${naoResp} questão(ões) em branco. Enviar mesmo assim?`)) return;
+
+  let nota = (acertos/questoesAtuais.length*10).toFixed(1);
+  salvarHistorico(acertos, nota, respostas);
+  mostrarResultado(acertos, nota, respostas);
+}
+
+function mostrarResultado(acertos, nota, respostas){
+  let est = nota>=8 ? "⭐⭐⭐" : nota>=6 ? "⭐⭐" : nota>=4 ? "⭐" : "😟";
+  document.getElementById("estrelas").innerText = est;
+  document.getElementById("msgNota").innerText =
+    nota>=6 ? "Parabéns! 🎉" : "Continue estudando! 💪";
+  document.getElementById("detalheNota").innerText =
+    `Você acertou ${acertos} de ${questoesAtuais.length} • Nota: ${nota}`;
+
+  const gab = document.getElementById("gabarito");
+  gab.innerHTML = "<h3>📋 Gabarito comentado</h3>";
+  questoesAtuais.forEach((q,i)=>{
+    let r = respostas[i];
+    let ops = Object.entries(q.opcoes).map(([l,t])=>{
+      let cls = l===q.correta ? "certa" : (l===r.marcada?"errada":"");
+      return `<div class="opcao ${cls}"><b>${l})</b> ${t}</div>`;
+    }).join("");
+    gab.innerHTML += `<div class="card">
+      <div class="pergunta">${i+1}. ${q.pergunta} ${r.acertou?"✅":"❌"}</div>
+      ${ops}
+      <div class="feedback">💡 ${q.feedback}</div>
+    </div>`;
+  });
+  mostrar("telaResultado");
+}
+
+/* ============ HISTÓRICO (localStorage) ============ */
+function salvarHistorico(acertos, nota, respostas){
+  let hist = JSON.parse(localStorage.getItem("historico")||"[]");
+  hist.unshift({
+    materia: materiaAtual,
+    data: new Date().toLocaleString("pt-BR"),
+    acertos, total: questoesAtuais.length, nota
+  });
+  localStorage.setItem("historico", JSON.stringify(hist));
+}
+
+function verHistorico(){
+  let hist = JSON.parse(localStorage.getItem("historico")||"[]");
+  const div = document.getElementById("listaHistorico");
+  if(hist.length===0){ div.innerHTML="<p>Nenhum simulado feito ainda. 📭</p>"; }
+  else{
+    // agrupa por matéria
+    let grupos = {};
+    hist.forEach(h=>{ (grupos[h.materia]=grupos[h.materia]||[]).push(h); });
+    div.innerHTML = "";
+    for(let mat in grupos){
+      let notas = grupos[mat].map(h=>parseFloat(h.nota));
+      let media = (notas.reduce((a,b)=>a+b,0)/notas.length).toFixed(1);
+      div.innerHTML += `<h3>${mat} — média ${media}</h3>`;
+      grupos[mat].forEach(h=>{
+        div.innerHTML += `<div class="hist-item">
+          <span>${h.data}</span>
+          <span><b>Nota ${h.nota}</b> (${h.acertos}/${h.total})</span>
+        </div>`;
+      });
+    }
+  }
+  mostrar("telaHistorico");
+}
+
+function limparHistorico(){
+  if(confirm("Apagar todo o histórico?")){
+    localStorage.removeItem("historico");
+    verHistorico();
+  }
+}
+
+function voltarInicio(){ mostrar("telaInicio"); }
+</script>
+</body>
+</html>
