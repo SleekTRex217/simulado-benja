@@ -3,337 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simulados 4º Ano 🎓</title>
+<title>Simulados Divertidos — 4º Ano</title>
 <style>
   :root{
-    --azul:#2f80ed; --verde:#27ae60; --vermelho:#eb5757;
-    --amarelo:#f2c94c; --roxo:#9b51e0; --bg:#eef4ff;
+    --roxo:#7c4dff; --roxo-esc:#5e35b1; --amarelo:#ffb300;
+    --verde:#43a047; --vermelho:#e53935; --azul:#1e88e5;
   }
   *{box-sizing:border-box;font-family:'Comic Sans MS','Segoe UI',sans-serif}
-  body{margin:0;background:var(--bg);color:#333}
-  header{background:var(--azul);color:#fff;padding:18px;text-align:center;
-    border-radius:0 0 24px 24px;box-shadow:0 4px 10px rgba(0,0,0,.15)}
-  header h1{margin:0;font-size:26px}
-  .container{max-width:760px;margin:20px auto;padding:0 16px}
-  .card{background:#fff;border-radius:20px;padding:20px;margin-bottom:16px;
-    box-shadow:0 3px 8px rgba(0,0,0,.08)}
-  .btn{border:none;border-radius:16px;padding:14px 22px;font-size:17px;
-    cursor:pointer;color:#fff;font-weight:bold;transition:.15s;margin:6px}
-  .btn:hover{transform:scale(1.05)}
-  .btn-azul{background:var(--azul)} .btn-verde{background:var(--verde)}
-  .btn-roxo{background:var(--roxo)} .btn-amarelo{background:var(--amarelo);color:#333}
-  .opcao{display:block;background:#f4f7fb;border:3px solid transparent;
-    border-radius:14px;padding:14px;margin:8px 0;cursor:pointer;font-size:16px}
-  .opcao:hover{background:#e6eeff}
-  .opcao.sel{border-color:var(--azul);background:#e0ebff}
-  .opcao.certa{border-color:var(--verde);background:#e3f9ec}
-  .opcao.errada{border-color:var(--vermelho);background:#fdeaea}
-  .pergunta{font-size:18px;font-weight:bold;margin-bottom:10px}
-  .tag{display:inline-block;background:var(--amarelo);color:#333;font-size:12px;
-    padding:3px 10px;border-radius:10px;margin-bottom:8px}
+  body{margin:0;background:linear-gradient(135deg,#e3f0ff,#f5e9ff);min-height:100vh}
+  .container{max-width:640px;margin:0 auto;padding:16px}
+  h1{color:var(--roxo-esc);text-align:center;margin:12px 0}
+  h2{color:var(--roxo-esc);margin-top:0}
+  .card{background:#fff;border-radius:24px;padding:22px;margin:14px 0;
+    box-shadow:0 6px 20px rgba(124,77,255,.15)}
+  .btn{border:none;border-radius:16px;padding:14px 20px;font-size:17px;
+    font-weight:bold;color:#fff;cursor:pointer;width:100%;margin:6px 0;
+    transition:transform .1s}
+  .btn:active{transform:scale(.97)}
+  .btn-roxo{background:var(--roxo)}
+  .btn-verde{background:var(--verde)}
+  .btn-amarelo{background:var(--amarelo)}
+  .btn-azul{background:var(--azul)}
+  select{width:100%;padding:14px;border-radius:16px;font-size:17px;
+    border:2px solid var(--roxo);color:var(--roxo-esc);background:#fff;margin:8px 0}
+  .progress{background:#eee;border-radius:20px;height:16px;overflow:hidden;margin:10px 0}
+  #barraProg{background:linear-gradient(90deg,var(--roxo),var(--amarelo));
+    height:100%;transition:width .3s}
+  .opcao{display:block;width:100%;text-align:left;background:#f4f7fb;
+    border:2px solid #dfe6ef;border-radius:16px;padding:14px;margin:8px 0;
+    font-size:16px;cursor:pointer;transition:.15s}
+  .opcao:hover{border-color:var(--roxo)}
+  .opcao.sel{background:#ede4ff;border-color:var(--roxo)}
+  .opcao.certa{background:#e3f7e6;border-color:var(--verde)}
+  .opcao.errada{background:#ffe5e5;border-color:var(--vermelho)}
+  .letra{display:inline-block;width:28px;height:28px;line-height:28px;
+    text-align:center;background:var(--roxo);color:#fff;border-radius:50%;
+    margin-right:10px;font-weight:bold}
   .feedback{background:#fff8e1;border-left:5px solid var(--amarelo);
-    padding:10px;border-radius:10px;margin-top:10px;font-size:15px}
-  .nota-box{text-align:center;font-size:22px}
-  .estrelas{font-size:40px}
-  .progress{height:16px;background:#e0e0e0;border-radius:10px;overflow:hidden}
-  .progress > div{height:100%;background:var(--verde);transition:.4s}
-  .hist-item{display:flex;justify-content:space-between;padding:10px;
-    border-bottom:1px solid #eee}
+    border-radius:10px;padding:10px;margin-top:8px;font-size:14px;color:#6d4c00}
+  #estrelas{font-size:52px;text-align:center;margin:10px 0}
+  .hist-item{display:flex;justify-content:space-between;background:#f4f7fb;
+    border-radius:12px;padding:10px;margin:6px 0;font-size:14px}
+  .medalha{display:flex;align-items:center;gap:14px;background:#f4f7fb;
+    border-radius:16px;padding:14px;margin:10px 0}
+  .medalha .icone{font-size:44px}
+  .medalha .info{flex:1}
+  .medalha .info h3{margin:0}
+  .medalha .info small{color:#777}
+  .bloqueada{opacity:.45;filter:grayscale(1)}
   .hide{display:none}
-  select{padding:10px;border-radius:12px;font-size:16px;border:2px solid var(--azul)}
+  small{color:#777}
 </style>
 </head>
 <body>
-<header>
-  <h1>🎓 Simulados 4º Ano</h1>
-  <small>Editora Conquista • Vol. 2</small>
-</header>
-
 <div class="container">
 
-  <!-- TELA INICIAL -->
-  <div id="telaInicio" class="card">
-    <h2>👋 Bem-vindo(a)!</h2>
-    <p>Escolha a matéria e comece seu simulado:</p>
-    <select id="selMateria">
-      <option value="Historia">📜 História</option>
-      <option value="Geografia">🗺️ Geografia</option>
-      <option value="Ciencias">🔬 Ciências</option>
-    </select>
+  <h1>🎓 Simulados Divertidos</h1>
 
-    <br><br>
-    <button class="btn btn-verde" onclick="iniciarSimulado()">🚀 Iniciar Simulado</button>
-    <button class="btn btn-roxo" onclick="verHistorico()">📊 Ver Histórico</button>
+  <!-- TELA INICIAL -->
+  <div id="telaInicio">
+    <div class="card">
+      <h2>Vamos estudar? 🚀</h2>
+      <p>Escolha uma matéria e teste seus conhecimentos!</p>
+      <select id="selMateria">
+        <option value="Historia">📜 História</option>
+        <option value="Geografia">🗺️ Geografia</option>
+        <option value="Ciencias">🔬 Ciências</option>
+      </select>
+      <button class="btn btn-verde" onclick="comecarProva()">▶️ Começar Simulado</button>
+      <button class="btn btn-azul" onclick="verHistorico()">📊 Meu Histórico</button>
+      <button class="btn btn-amarelo" onclick="verMedalhas()">🏅 Minhas Medalhas</button>
+    </div>
   </div>
 
-  <!-- TELA DA PROVA -->
+  <!-- TELA PROVA -->
   <div id="telaProva" class="hide">
     <div class="card">
       <h2 id="tituloProva"></h2>
       <div class="progress"><div id="barraProg" style="width:0%"></div></div>
-      <p><small id="contador"></small></p>
+      <p style="display:flex;justify-content:space-between;align-items:center">
+        <small id="contador"></small>
+        <span id="cronometro" style="font-weight:bold;color:var(--roxo);font-size:18px">⏱️ 00:00</span>
+      </p>
     </div>
     <div id="questoes"></div>
-    <div class="card" style="text-align:center">
-      <button class="btn btn-verde" onclick="enviarProva()">✅ Enviar Prova</button>
-      <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Sair</button>
-    </div>
+    <button class="btn btn-roxo" onclick="enviarProva()">✅ Enviar Respostas</button>
+    <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Início</button>
   </div>
 
-  <!-- TELA DE RESULTADO -->
+  <!-- TELA RESULTADO -->
   <div id="telaResultado" class="hide">
-    <div class="card nota-box">
-      <div class="estrelas" id="estrelas"></div>
-      <h2 id="msgNota"></h2>
-      <p id="detalheNota"></p>
-    </div>
-    <div id="gabarito"></div>
-    <div class="card" style="text-align:center">
-      <button class="btn btn-azul" onclick="refazerProva()">🔄 Refazer (trocar questões)</button>
-      <button class="btn btn-verde" onclick="verHistorico()">📊 Histórico</button>
+    <div class="card">
+      <div id="estrelas"></div>
+      <h2 id="msgNota" style="text-align:center"></h2>
+      <p id="detalheNota" style="text-align:center;font-size:15px"></p>
+      <button class="btn btn-azul" onclick="verGabarito()">🔍 Ver Gabarito Comentado</button>
+      <button class="btn btn-verde" onclick="refazerProva()">🔁 Refazer</button>
       <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Início</button>
     </div>
   </div>
 
-  <!-- TELA DE HISTÓRICO -->
+  <!-- TELA HISTÓRICO -->
   <div id="telaHistorico" class="hide">
     <div class="card">
-      <h2>📊 Histórico por Matéria</h2>
+      <h2>📊 Meu Histórico</h2>
       <div id="listaHistorico"></div>
+      <button class="btn btn-vermelho" style="background:var(--vermelho)" onclick="limparHistorico()">🗑️ Limpar Histórico</button>
+      <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Início</button>
+    </div>
+  </div>
+
+  <!-- TELA MEDALHAS -->
+  <div id="telaMedalhas" class="hide">
+    <div class="card">
+      <h2>🏅 Minhas Medalhas</h2>
+      <div id="listaMedalhas"></div>
       <br>
       <button class="btn btn-amarelo" onclick="voltarInicio()">🏠 Início</button>
-      <button class="btn" style="background:var(--vermelho)" onclick="limparHistorico()">🗑️ Limpar tudo</button>
     </div>
   </div>
 
 </div>
 
 <script>
-/* ============ BANCO DE QUESTÕES ============ */
+/* ===================== BANCO DE QUESTÕES ===================== */
 const BANCO = {
   Historia: [
-    {id:1, conteudo_bncc:"EF04HI01 - A ação dos seres humanos no tempo",
-     pergunta:"Quando estudamos História, o que fazemos principalmente?",
-     opcoes:{A:"Inventamos histórias de fantasia.",B:"Estudamos como as pessoas viveram em diferentes tempos.",C:"Aprendemos apenas sobre animais.",D:"Só decoramos datas sem entender nada."},
-     correta:"B", feedback:"A História estuda como os seres humanos viveram e agiram ao longo do tempo, ajudando a entender o passado."},
-
+    {id:1, conteudo_bncc:"A ação dos seres humanos no tempo",
+     pergunta:"O que estuda a História?",
+     opcoes:{A:"Apenas os animais.",B:"As ações e a vida dos seres humanos ao longo do tempo.",C:"Somente as plantas.",D:"Só o futuro."},
+     correta:"B", feedback:"A História estuda como os seres humanos viveram e agiram ao longo do tempo, do passado até hoje."},
     {id:2, conteudo_bncc:"O início da vida humana na África",
-     pergunta:"Segundo os estudos, em qual continente surgiram os primeiros seres humanos?",
-     opcoes:{A:"América",B:"Europa",C:"África",D:"Oceania"},
-     correta:"C", feedback:"As pesquisas mostram que os primeiros grupos humanos surgiram no continente africano."},
-
+     pergunta:"Em qual continente surgiram os primeiros seres humanos?",
+     opcoes:{A:"América.",B:"Europa.",C:"África.",D:"Oceania."},
+     correta:"C", feedback:"Os primeiros seres humanos surgiram na África, há milhões de anos, e depois se espalharam pelo mundo."},
     {id:3, conteudo_bncc:"Como viviam os primeiros grupos humanos",
-     pergunta:"Como os primeiros grupos humanos conseguiam seu alimento?",
-     opcoes:{A:"Comprando em mercados.",B:"Caçando animais e coletando frutos e raízes.",C:"Plantando em grandes fazendas.",D:"Pedindo comida em restaurantes."},
-     correta:"B", feedback:"Os primeiros humanos eram caçadores e coletores: caçavam animais e coletavam frutos, raízes e sementes."},
-
+     pergunta:"Como os primeiros grupos humanos conseguiam alimento?",
+     opcoes:{A:"Comprando em mercados.",B:"Caçando animais e coletando frutas e raízes.",C:"Plantando arroz em grandes fazendas.",D:"Pedindo comida por aplicativo."},
+     correta:"B", feedback:"Os primeiros grupos eram caçadores e coletores: caçavam animais e coletavam frutas, raízes e sementes."},
     {id:4, conteudo_bncc:"Como viviam os primeiros grupos humanos",
-     pergunta:"Por que os primeiros grupos humanos mudavam bastante de lugar (eram nômades)?",
-     opcoes:{A:"Porque gostavam de passear.",B:"Para procurar comida e água quando faltavam.",C:"Porque tinham carros.",D:"Para visitar parentes distantes."},
-     correta:"B", feedback:"Eles eram nômades porque precisavam se deslocar em busca de alimento e água."},
-
+     pergunta:"Por que os primeiros grupos humanos mudavam de lugar com frequência?",
+     opcoes:{A:"Porque gostavam de passear.",B:"Para procurar alimento e água.",C:"Porque tinham carros.",D:"Para ir à escola."},
+     correta:"B", feedback:"Eles eram nômades: mudavam de lugar em busca de alimento, água e melhores condições para viver."},
     {id:5, conteudo_bncc:"A domesticação do fogo",
-     pergunta:"Qual foi uma grande vantagem que o fogo trouxe aos primeiros humanos?",
-     opcoes:{A:"Servia para assistir televisão.",B:"Aquecia, iluminava e ajudava a cozinhar os alimentos.",C:"Não servia para nada.",D:"Só servia para brincar."},
-     correta:"B", feedback:"O domínio do fogo permitiu aquecer-se, iluminar a noite, afastar animais e cozinhar alimentos."},
-
+     pergunta:"O que mudou na vida dos humanos quando aprenderam a usar o fogo?",
+     opcoes:{A:"Nada mudou.",B:"Passaram a se aquecer, cozinhar alimentos e afastar animais.",C:"Ficaram com medo e fugiram.",D:"Pararam de comer."},
+     correta:"B", feedback:"O fogo permitiu aquecer-se, cozinhar alimentos, iluminar a noite e se proteger de animais selvagens."},
     {id:6, conteudo_bncc:"A domesticação do fogo",
-     pergunta:"O que significa dizer que o ser humano 'domesticou' o fogo?",
-     opcoes:{A:"Que aprendeu a controlar e usar o fogo.",B:"Que criou o fogo como um animal de estimação.",C:"Que apagou todos os fogos do mundo.",D:"Que tinha medo do fogo."},
-     correta:"A", feedback:"Domesticar o fogo significa que os humanos aprenderam a controlá-lo e usá-lo a seu favor."},
-
+     pergunta:"Cozinhar os alimentos com o fogo trouxe qual vantagem?",
+     opcoes:{A:"Deixou a comida mais difícil de comer.",B:"Tornou os alimentos mais fáceis de mastigar e digerir.",C:"Estragou toda a comida.",D:"Não trouxe vantagem."},
+     correta:"B", feedback:"Cozinhar deixou os alimentos mais macios, saborosos e fáceis de digerir, além de matar germes."},
     {id:7, conteudo_bncc:"Caminhada pelo mundo afora",
-     pergunta:"A partir da África, o que os grupos humanos fizeram ao longo de muito tempo?",
-     opcoes:{A:"Ficaram sempre no mesmo lugar.",B:"Espalharam-se por vários continentes do mundo.",C:"Voltaram para o mar.",D:"Desapareceram completamente."},
-     correta:"B", feedback:"Com o tempo, os grupos humanos migraram e se espalharam por diferentes partes do mundo."},
-
+     pergunta:"Como os seres humanos chegaram a outros continentes?",
+     opcoes:{A:"De avião.",B:"Caminhando por longas distâncias ao longo de muitos anos.",C:"Nasceram em todos os lugares ao mesmo tempo.",D:"De trem."},
+     correta:"B", feedback:"Os humanos migraram a pé, aos poucos, durante milhares de anos, ocupando quase todo o planeta."},
     {id:8, conteudo_bncc:"Caminhada pelo mundo afora",
-     pergunta:"O deslocamento de grupos humanos de um lugar para outro é chamado de:",
-     opcoes:{A:"Migração.",B:"Alimentação.",C:"Domesticação.",D:"Ilustração."},
-     correta:"A", feedback:"Migração é o nome dado ao movimento de pessoas de um lugar para outro."},
-
+     pergunta:"O nome dado ao movimento dos grupos humanos que saíam de um lugar para outro é:",
+     opcoes:{A:"Migração.",B:"Férias.",C:"Recreio.",D:"Colheita."},
+     correta:"A", feedback:"Chamamos de migração o deslocamento dos grupos humanos em busca de novos lugares para viver."},
     {id:9, conteudo_bncc:"Os primeiros habitantes do território brasileiro",
      pergunta:"Quem foram os primeiros habitantes do território que hoje é o Brasil?",
-     opcoes:{A:"Os europeus.",B:"Os povos indígenas.",C:"Os astronautas.",D:"Os robôs."},
+     opcoes:{A:"Os europeus.",B:"Os povos indígenas.",C:"Os africanos.",D:"Os astronautas."},
      correta:"B", feedback:"Os povos indígenas foram os primeiros a habitar o território brasileiro, muito antes da chegada dos europeus."},
-
     {id:10, conteudo_bncc:"Os primeiros habitantes do território brasileiro",
-     pergunta:"Os cientistas descobrem como viviam os primeiros habitantes estudando principalmente:",
-     opcoes:{A:"Vestígios como ferramentas, ossos e pinturas rupestres.",B:"Programas de televisão.",C:"Redes sociais da época.",D:"Livros escritos por eles."},
-     correta:"A", feedback:"Como não havia escrita, estudamos vestígios como ferramentas, ossos e pinturas nas rochas (rupestres)."},
-
-    {id:11, conteudo_bncc:"A ação dos seres humanos no tempo",
-     pergunta:"O que são as pinturas rupestres?",
-     opcoes:{A:"Fotos tiradas com celular.",B:"Desenhos feitos por povos antigos nas paredes de cavernas e rochas.",C:"Pinturas modernas em museus.",D:"Placas de trânsito."},
-     correta:"B", feedback:"Pinturas rupestres são desenhos deixados por povos antigos em cavernas e rochas, mostrando seu dia a dia."},
-
-    {id:12, conteudo_bncc:"Como viviam os primeiros grupos humanos",
-     pergunta:"Os primeiros instrumentos usados pelos humanos eram feitos principalmente de:",
-     opcoes:{A:"Plástico.",B:"Vidro.",C:"Pedra, ossos e madeira.",D:"Metal brilhante comprado em lojas."},
-     correta:"C", feedback:"Nos tempos mais antigos, as ferramentas eram feitas de pedra, ossos e madeira."},
-
-    {id:13, conteudo_bncc:"Caminhada pelo mundo afora",
-     pergunta:"Acredita-se que os primeiros humanos chegaram à América vindos:",
-     opcoes:{A:"De outros planetas.",B:"Da Ásia, atravessando por regiões geladas.",C:"Já nasceram na América.",D:"De avião."},
-     correta:"B", feedback:"Muitos estudos indicam que grupos humanos chegaram à América vindos da Ásia, atravessando regiões geladas."},
-
-    {id:14, conteudo_bncc:"A ação dos seres humanos no tempo",
-     pergunta:"Por que é importante estudar como viviam os primeiros grupos humanos?",
-     opcoes:{A:"Para entender de onde viemos e como a vida mudou ao longo do tempo.",B:"Para não fazer nada útil.",C:"Apenas para passar de ano.",D:"Porque é obrigatório e sem sentido."},
-     correta:"A", feedback:"Estudar o passado nos ajuda a entender nossas origens e as transformações da vida humana ao longo do tempo."},
-
-    {id:15, conteudo_bncc:"A domesticação do fogo",
-     pergunta:"Antes de dominar o fogo, como os humanos comiam a carne dos animais caçados?",
-     opcoes:{A:"Assada no forno elétrico.",B:"Crua, sem poder cozinhar.",C:"Congelada.",D:"Em forma de sanduíche."},
-     correta:"B", feedback:"Antes de dominar o fogo, os humanos comiam os alimentos crus, pois não podiam cozinhá-los."}
+     pergunta:"Os primeiros habitantes do Brasil deixaram marcas de sua presença. Um exemplo são:",
+     opcoes:{A:"Prédios de vidro.",B:"Pinturas rupestres feitas em rochas e cavernas.",C:"Telefones celulares.",D:"Carros antigos."},
+     correta:"B", feedback:"As pinturas rupestres em rochas e cavernas mostram como viviam os primeiros habitantes do território brasileiro."}
   ],
   Geografia: [
     {id:1, conteudo_bncc:"Brasil: organização político-administrativa",
      pergunta:"Como o território brasileiro é dividido politicamente?",
      opcoes:{A:"Em bairros e ruas apenas.",B:"Em estados, municípios e o Distrito Federal.",C:"Em fazendas e vilas.",D:"Em continentes."},
      correta:"B", feedback:"O Brasil é organizado em estados, municípios e o Distrito Federal, onde fica a capital, Brasília."},
-
     {id:2, conteudo_bncc:"Brasil: organização político-administrativa",
      pergunta:"Quantos estados existem atualmente no Brasil?",
      opcoes:{A:"10 estados.",B:"20 estados.",C:"26 estados e mais o Distrito Federal.",D:"50 estados."},
      correta:"C", feedback:"O Brasil possui 26 estados e o Distrito Federal, onde está localizada a capital do país."},
-
     {id:3, conteudo_bncc:"Brasil: organização político-administrativa",
      pergunta:"Qual é a capital do Brasil?",
      opcoes:{A:"São Paulo.",B:"Rio de Janeiro.",C:"Brasília.",D:"Salvador."},
      correta:"C", feedback:"Brasília, localizada no Distrito Federal, é a capital do Brasil desde 1960."},
-
     {id:4, conteudo_bncc:"Brasil: organização político-administrativa",
      pergunta:"A menor divisão do território brasileiro, onde moramos e temos a prefeitura, é o:",
      opcoes:{A:"Município.",B:"Continente.",C:"Estado.",D:"País."},
      correta:"A", feedback:"O município é a menor divisão político-administrativa. Cada município tem sua prefeitura e câmara de vereadores."},
-
     {id:5, conteudo_bncc:"Os três poderes",
      pergunta:"Quais são os três poderes que organizam o governo do Brasil?",
      opcoes:{A:"Norte, Sul e Leste.",B:"Executivo, Legislativo e Judiciário.",C:"Escola, família e igreja.",D:"Federal, estadual e local."},
      correta:"B", feedback:"Os três poderes são: Executivo, Legislativo e Judiciário. Eles trabalham separados para equilibrar o governo."},
-
     {id:6, conteudo_bncc:"Os três poderes",
      pergunta:"Qual poder tem como principal função criar as leis?",
      opcoes:{A:"O Poder Executivo.",B:"O Poder Judiciário.",C:"O Poder Legislativo.",D:"A prefeitura da escola."},
      correta:"C", feedback:"O Poder Legislativo (vereadores, deputados e senadores) é responsável por criar e votar as leis."},
-
     {id:7, conteudo_bncc:"Os três poderes",
      pergunta:"O presidente, os governadores e os prefeitos fazem parte de qual poder?",
      opcoes:{A:"Poder Executivo.",B:"Poder Legislativo.",C:"Poder Judiciário.",D:"Nenhum poder."},
      correta:"A", feedback:"O Poder Executivo governa e coloca as leis em prática. É formado por presidente, governadores e prefeitos."},
-
     {id:8, conteudo_bncc:"Os três poderes",
      pergunta:"Qual poder é responsável por julgar e fazer a justiça, garantindo que as leis sejam cumpridas?",
      opcoes:{A:"Poder Legislativo.",B:"Poder Executivo.",C:"Poder Judiciário.",D:"Poder da natureza."},
      correta:"C", feedback:"O Poder Judiciário é formado pelos juízes e tribunais, que julgam e garantem o cumprimento das leis."},
-
     {id:9, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
      pergunta:"O que são órgãos públicos?",
      opcoes:{A:"Lojas particulares que vendem produtos.",B:"Instituições do governo que prestam serviços à população, como escolas e hospitais.",C:"Casas de pessoas famosas.",D:"Fábricas de brinquedos."},
      correta:"B", feedback:"Órgãos públicos são instituições mantidas pelo governo para atender a população, como escolas, hospitais e postos de saúde."},
-
     {id:10, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
      pergunta:"De que forma um cidadão pode participar das decisões do país?",
      opcoes:{A:"Votando nas eleições e acompanhando as ações do governo.",B:"Apenas assistindo televisão.",C:"Ficando em silêncio sempre.",D:"Não é possível participar."},
      correta:"A", feedback:"O cidadão participa votando, opinando, reivindicando melhorias e acompanhando o trabalho dos governantes."},
-
     {id:11, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
      pergunta:"O ato de escolher nossos representantes, como prefeitos e presidentes, chama-se:",
      opcoes:{A:"Passeio.",B:"Voto (eleição).",C:"Recreio.",D:"Compra."},
      correta:"B", feedback:"Por meio do voto nas eleições, os cidadãos escolhem quem vai representá-los no governo."},
-
     {id:12, conteudo_bncc:"Órgãos públicos e a participação do cidadão",
      pergunta:"Um exemplo de serviço público oferecido à população é:",
      opcoes:{A:"Um shopping particular.",B:"O atendimento em um posto de saúde.",C:"Uma loja de doces.",D:"Um parque de diversões pago."},
      correta:"B", feedback:"Postos de saúde, escolas públicas e transporte coletivo são exemplos de serviços públicos oferecidos pelo governo."},
-
     {id:13, conteudo_bncc:"Brasil: regionalização do espaço",
      pergunta:"Em quantas grandes regiões o Brasil está dividido pelo IBGE?",
      opcoes:{A:"Duas regiões.",B:"Cinco regiões.",C:"Dez regiões.",D:"Vinte regiões."},
      correta:"B", feedback:"O Brasil é dividido em 5 regiões: Norte, Nordeste, Centro-Oeste, Sudeste e Sul."},
-
     {id:14, conteudo_bncc:"Brasil: regionalização do espaço",
      pergunta:"Quais são as cinco regiões do Brasil?",
      opcoes:{A:"Norte, Sul, Leste, Oeste e Centro.",B:"Norte, Nordeste, Centro-Oeste, Sudeste e Sul.",C:"Litoral, Serra, Sertão, Campo e Cidade.",D:"Primeira, Segunda, Terceira, Quarta e Quinta."},
      correta:"B", feedback:"As cinco regiões brasileiras são: Norte, Nordeste, Centro-Oeste, Sudeste e Sul, agrupadas por características em comum."},
-
     {id:15, conteudo_bncc:"Brasil: regionalização do espaço",
      pergunta:"Por que o Brasil foi dividido em regiões?",
      opcoes:{A:"Para agrupar estados que têm características parecidas e facilitar os estudos.",B:"Para deixar o mapa mais bonito.",C:"Porque cada região é um país diferente.",D:"Sem nenhum motivo importante."},
      correta:"A", feedback:"A regionalização agrupa estados com características naturais, culturais e econômicas parecidas, facilitando estudos e planejamento."}
   ],
-    Ciencias: [
+  Ciencias: [
     {id:1, conteudo_bncc:"Características da biosfera",
      pergunta:"O que é a biosfera?",
      opcoes:{A:"É o conjunto de todos os lugares do planeta onde existe vida.",B:"É apenas o fundo dos oceanos.",C:"É um planeta sem vida.",D:"É só o ar que respiramos."},
      correta:"A", feedback:"A biosfera é a parte do planeta Terra onde existe vida: envolve terra, água e ar habitados por seres vivos."},
-
     {id:2, conteudo_bncc:"Características da biosfera",
      pergunta:"Quais elementos são essenciais para a vida na biosfera?",
      opcoes:{A:"Apenas pedras.",B:"Água, ar, luz do Sol e nutrientes.",C:"Somente plástico.",D:"Apenas metais."},
      correta:"B", feedback:"A vida depende de água, ar, luz do Sol e nutrientes, que juntos permitem a existência dos seres vivos."},
-
     {id:3, conteudo_bncc:"Características da biosfera",
      pergunta:"A biosfera é formada pela junção de três partes do planeta. Quais são elas?",
      opcoes:{A:"Terra (litosfera), água (hidrosfera) e ar (atmosfera).",B:"Sol, Lua e estrelas.",C:"Cidade, campo e praia.",D:"Norte, Sul e Centro."},
      correta:"A", feedback:"A biosfera surge do encontro da litosfera (terra), hidrosfera (água) e atmosfera (ar), onde a vida acontece."},
-
     {id:4, conteudo_bncc:"Relações ecológicas",
      pergunta:"O que são relações ecológicas?",
      opcoes:{A:"Brincadeiras entre crianças.",B:"As interações que acontecem entre os seres vivos na natureza.",C:"Regras de trânsito.",D:"Tipos de rochas."},
      correta:"B", feedback:"Relações ecológicas são as interações entre os seres vivos, que podem ajudar ou prejudicar uns aos outros."},
-
     {id:5, conteudo_bncc:"Relações ecológicas",
      pergunta:"As relações ecológicas podem ser classificadas em dois grandes grupos. Quais são?",
      opcoes:{A:"Grandes e pequenas.",B:"Rápidas e lentas.",C:"Harmônicas e desarmônicas.",D:"Quentes e frias."},
      correta:"C", feedback:"As relações ecológicas dividem-se em harmônicas (sem prejuízo) e desarmônicas (quando um ser é prejudicado)."},
-
     {id:6, conteudo_bncc:"Relações ecológicas",
      pergunta:"Uma relação ecológica pode acontecer entre seres:",
      opcoes:{A:"Somente da mesma espécie.",B:"Somente de espécies diferentes.",C:"Da mesma espécie ou de espécies diferentes.",D:"Apenas entre plantas."},
      correta:"C", feedback:"As relações podem ocorrer entre seres da mesma espécie (intraespecíficas) ou de espécies diferentes (interespecíficas)."},
-
     {id:7, conteudo_bncc:"Relações harmônicas",
      pergunta:"O que são relações harmônicas?",
      opcoes:{A:"Relações em que nenhum dos seres vivos é prejudicado.",B:"Relações em que todos brigam.",C:"Relações em que um ser sempre morre.",D:"Relações que não existem."},
      correta:"A", feedback:"Nas relações harmônicas, os seres vivos convivem sem que nenhum deles seja prejudicado; um ou os dois podem se beneficiar."},
-
     {id:8, conteudo_bncc:"Relações harmônicas",
      pergunta:"A abelha se alimenta do néctar da flor e, ao mesmo tempo, ajuda na polinização. Que tipo de relação é essa?",
      opcoes:{A:"Desarmônica.",B:"Harmônica, pois os dois se beneficiam.",C:"Uma briga entre eles.",D:"Nenhuma relação."},
      correta:"B", feedback:"É uma relação harmônica: a abelha ganha alimento e a flor é polinizada. Os dois se beneficiam."},
-
     {id:9, conteudo_bncc:"Relações harmônicas",
      pergunta:"Um cardume de peixes que nadam juntos para se proteger é um exemplo de relação harmônica entre seres:",
      opcoes:{A:"De espécies diferentes.",B:"Da mesma espécie.",C:"Que se prejudicam.",D:"Sem vida."},
      correta:"B", feedback:"O cardume é uma relação harmônica entre seres da mesma espécie, que se unem para se proteger e sobreviver melhor."},
-
     {id:10, conteudo_bncc:"Relações harmônicas",
      pergunta:"Quando o peixe-palhaço vive protegido entre os tentáculos da anêmona, sem prejudicá-la, temos uma relação:",
      opcoes:{A:"Harmônica.",B:"Desarmônica.",C:"De predação.",D:"De competição."},
      correta:"A", feedback:"É uma relação harmônica: o peixe-palhaço ganha proteção e a anêmona não é prejudicada."},
-
     {id:11, conteudo_bncc:"Relações desarmônicas",
      pergunta:"O que são relações desarmônicas?",
      opcoes:{A:"Relações em que todos se ajudam.",B:"Relações em que pelo menos um dos seres vivos é prejudicado.",C:"Relações que só existem entre plantas.",D:"Relações sem nenhum contato."},
      correta:"B", feedback:"Nas relações desarmônicas, pelo menos um dos seres envolvidos é prejudicado pela interação."},
-
     {id:12, conteudo_bncc:"Relações desarmônicas",
      pergunta:"O leão que caça e come uma zebra é um exemplo de qual relação desarmônica?",
      opcoes:{A:"Polinização.",B:"Predação.",C:"Cardume.",D:"Amizade."},
      correta:"B", feedback:"É predação: um ser vivo (predador) caça e se alimenta de outro (presa), que é prejudicado."},
-
     {id:13, conteudo_bncc:"Relações desarmônicas",
      pergunta:"O carrapato que vive no corpo do cachorro sugando seu sangue é um exemplo de:",
      opcoes:{A:"Parasitismo.",B:"Relação harmônica.",C:"Polinização.",D:"Cardume."},
      correta:"A", feedback:"É parasitismo: o carrapato (parasita) se beneficia sugando o sangue, enquanto o cachorro (hospedeiro) é prejudicado."},
-
     {id:14, conteudo_bncc:"Relações desarmônicas",
      pergunta:"Quando dois animais disputam o mesmo alimento ou território, temos uma relação de:",
      opcoes:{A:"Competição.",B:"Amizade.",C:"Polinização.",D:"Proteção mútua."},
      correta:"A", feedback:"É competição: os seres vivos disputam recursos como alimento, água ou espaço, o que pode prejudicar um ou os dois."},
-
     {id:15, conteudo_bncc:"Relações desarmônicas",
      pergunta:"Qual das opções abaixo é uma relação DESARMÔNICA?",
      opcoes:{A:"Abelha e flor.",B:"Cardume de peixes.",C:"Leão caçando a zebra.",D:"Peixe-palhaço e anêmona."},
@@ -341,124 +296,145 @@ const BANCO = {
   ]
 };
 
-/* ============ ESTADO ============ */
-let materiaAtual = "Historia";
-let questoesAtuais = [];
-const QTD = 8; // questões por simulado (entre 8 e 15)
+const MATERIAS = {
+  Historia:  {nome:"História",  icone:"📜"},
+  Geografia: {nome:"Geografia", icone:"🗺️"},
+  Ciencias:  {nome:"Ciências",  icone:"🔬"}
+};
 
-/* ============ FUNÇÕES ============ */
-function embaralhar(arr){ return [...arr].sort(()=>Math.random()-0.5); }
+/* ===================== ESTADO ===================== */
+let materiaAtual = "", questoesAtuais = [], respostas = {};
+let tempoInicio = 0, cronoInterval = null, tempoGasto = 0;
 
-function sortearQuestoes(){
-  return embaralhar(BANCO[materiaAtual]).slice(0, QTD);
-}
-
+/* ===================== NAVEGAÇÃO ===================== */
 function mostrar(tela){
-  ["telaInicio","telaProva","telaResultado","telaHistorico"]
+  ["telaInicio","telaProva","telaResultado","telaHistorico","telaMedalhas"]
     .forEach(t=>document.getElementById(t).classList.add("hide"));
   document.getElementById(tela).classList.remove("hide");
   window.scrollTo(0,0);
 }
+function voltarInicio(){ clearInterval(cronoInterval); mostrar("telaInicio"); }
 
-function iniciarSimulado(){
+/* ===================== PROVA ===================== */
+function embaralhar(arr){ return arr.slice().sort(()=>Math.random()-0.5); }
+
+function comecarProva(){
   materiaAtual = document.getElementById("selMateria").value;
-  questoesAtuais = sortearQuestoes();
+  questoesAtuais = embaralhar(BANCO[materiaAtual]).slice(0,10);
+  respostas = {};
   renderProva();
   mostrar("telaProva");
 }
-
-function refazerProva(){
-  questoesAtuais = sortearQuestoes(); // novo sorteio troca questões
-  renderProva();
-  mostrar("telaProva");
-}
+function refazerProva(){ comecarProva(); }
 
 function renderProva(){
-  const icones = { Historia: "📜", Geografia: "🗺️", Ciencias: "🔬" };
-  document.getElementById("tituloProva").innerText = "📜 Simulado de "+materiaAtual;
-  const div = document.getElementById("questoes");
-  div.innerHTML = "";
+  const icones = { Historia:"📜", Geografia:"🗺️", Ciencias:"🔬" };
+  document.getElementById("tituloProva").innerText =
+    (icones[materiaAtual]||"📘") + " Simulado de " + MATERIAS[materiaAtual].nome;
+  const cont = document.getElementById("questoes");
+  cont.innerHTML = "";
   questoesAtuais.forEach((q,i)=>{
-    let ops = Object.entries(q.opcoes).map(([l,t])=>
-      `<label class="opcao" onclick="marcar(this,${i})">
-         <input type="radio" name="q${i}" value="${l}" style="display:none">
-         <b>${l})</b> ${t}
-       </label>`).join("");
-    div.innerHTML += `<div class="card">
-        <span class="tag">${q.conteudo_bncc}</span>
-        <div class="pergunta">${i+1}. ${q.pergunta}</div>
-        ${ops}
-      </div>`;
+    let opc = "";
+    for(let l in q.opcoes){
+      opc += `<button class="opcao" data-q="${i}" data-l="${l}" onclick="selecionar(${i},'${l}')">
+        <span class="letra">${l}</span>${q.opcoes[l]}</button>`;
+    }
+    cont.innerHTML += `<div class="card">
+      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${opc}</div>`;
+  });
+  atualizarProgresso();
+  iniciarCronometro();
+}
+
+function selecionar(i,l){
+  respostas[i]=l;
+  document.querySelectorAll(`.opcao[data-q="${i}"]`).forEach(b=>{
+    b.classList.toggle("sel", b.dataset.l===l);
   });
   atualizarProgresso();
 }
-
-function marcar(el, idx){
-  el.parentNode.querySelectorAll(".opcao").forEach(o=>o.classList.remove("sel"));
-  el.classList.add("sel");
-  el.querySelector("input").checked = true;
-  atualizarProgresso();
-}
-
 function atualizarProgresso(){
-  let respondidas = questoesAtuais.filter((q,i)=>
-    document.querySelector(`input[name="q${i}"]:checked`)).length;
-  let pct = Math.round(respondidas/questoesAtuais.length*100);
-  document.getElementById("barraProg").style.width = pct+"%";
-  document.getElementById("contador").innerText =
-    `${respondidas} de ${questoesAtuais.length} respondidas`;
+  let feitas = Object.keys(respostas).length;
+  let total = questoesAtuais.length;
+  document.getElementById("barraProg").style.width = (feitas/total*100)+"%";
+  document.getElementById("contador").innerText = `${feitas} de ${total} respondidas`;
 }
 
 function enviarProva(){
-  let respostas = [], acertos = 0;
-  questoesAtuais.forEach((q,i)=>{
-    let sel = document.querySelector(`input[name="q${i}"]:checked`);
-    let marcada = sel ? sel.value : null;
-    let acertou = marcada === q.correta;
-    if(acertou) acertos++;
-    respostas.push({id_questao:q.id, marcada, correta:q.correta, acertou});
-  });
-
-  let naoResp = respostas.filter(r=>!r.marcada).length;
-  if(naoResp>0 && !confirm(`Você deixou ${naoResp} questão(ões) em branco. Enviar mesmo assim?`)) return;
-
+  if(Object.keys(respostas).length < questoesAtuais.length){
+    if(!confirm("Você ainda não respondeu todas as questões. Deseja enviar mesmo assim?")) return;
+  }
+  let tempo = pararCronometro();
+  let acertos = 0;
+  questoesAtuais.forEach((q,i)=>{ if(respostas[i]===q.correta) acertos++; });
   let nota = (acertos/questoesAtuais.length*10).toFixed(1);
-  salvarHistorico(acertos, nota, respostas);
-  mostrarResultado(acertos, nota, respostas);
+  salvarHistorico(acertos, nota, respostas, tempo);
+  mostrarResultado(acertos, nota, respostas, tempo);
 }
 
-function mostrarResultado(acertos, nota, respostas){
+/* ===================== CRONÔMETRO ===================== */
+function iniciarCronometro(){
+  tempoInicio = Date.now();
+  clearInterval(cronoInterval);
+  cronoInterval = setInterval(atualizarCronometro, 1000);
+  atualizarCronometro();
+}
+function atualizarCronometro(){
+  let s = Math.floor((Date.now()-tempoInicio)/1000);
+  let m = String(Math.floor(s/60)).padStart(2,"0");
+  document.getElementById("cronometro").innerText = `⏱️ ${m}:${String(s%60).padStart(2,"0")}`;
+}
+function pararCronometro(){
+  clearInterval(cronoInterval);
+  tempoGasto = Math.floor((Date.now()-tempoInicio)/1000);
+  return tempoGasto;
+}
+function formatarTempo(s){
+  let m = String(Math.floor(s/60)).padStart(2,"0");
+  return `${m}:${String(s%60).padStart(2,"0")}`;
+}
+
+/* ===================== RESULTADO ===================== */
+function mostrarResultado(acertos, nota, resp, tempo){
   let est = nota>=8 ? "⭐⭐⭐" : nota>=6 ? "⭐⭐" : nota>=4 ? "⭐" : "😟";
   document.getElementById("estrelas").innerText = est;
   document.getElementById("msgNota").innerText =
     nota>=6 ? "Parabéns! 🎉" : "Continue estudando! 💪";
   document.getElementById("detalheNota").innerText =
-    `Você acertou ${acertos} de ${questoesAtuais.length} • Nota: ${nota}`;
-
-  const gab = document.getElementById("gabarito");
-  gab.innerHTML = "<h3>📋 Gabarito comentado</h3>";
-  questoesAtuais.forEach((q,i)=>{
-    let r = respostas[i];
-    let ops = Object.entries(q.opcoes).map(([l,t])=>{
-      let cls = l===q.correta ? "certa" : (l===r.marcada?"errada":"");
-      return `<div class="opcao ${cls}"><b>${l})</b> ${t}</div>`;
-    }).join("");
-    gab.innerHTML += `<div class="card">
-      <div class="pergunta">${i+1}. ${q.pergunta} ${r.acertou?"✅":"❌"}</div>
-      ${ops}
-      <div class="feedback">💡 ${q.feedback}</div>
-    </div>`;
-  });
+    `Você acertou ${acertos} de ${questoesAtuais.length} • Nota: ${nota} • ⏱️ Tempo: ${formatarTempo(tempo)}`;
   mostrar("telaResultado");
 }
 
-/* ============ HISTÓRICO (localStorage) ============ */
-function salvarHistorico(acertos, nota, respostas){
+function verGabarito(){
+  const cont = document.getElementById("questoes");
+  cont.innerHTML = "<div class='card'><h2>🔍 Gabarito Comentado</h2></div>";
+  questoesAtuais.forEach((q,i)=>{
+    let opc = "";
+    for(let l in q.opcoes){
+      let cls = "opcao";
+      if(l===q.correta) cls+=" certa";
+      else if(respostas[i]===l) cls+=" errada";
+      opc += `<button class="${cls}" disabled><span class="letra">${l}</span>${q.opcoes[l]}</button>`;
+    }
+    cont.innerHTML += `<div class="card">
+      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${opc}
+      <div class="feedback">💡 <b>Explicação:</b> ${q.feedback}</div></div>`;
+  });
+  document.getElementById("tituloProva").innerText = "🔍 Gabarito — " + MATERIAS[materiaAtual].nome;
+  document.querySelector("#telaProva .progress").parentElement.parentElement.querySelector(".progress").style.display="none";
+  document.getElementById("cronometro").style.display="none";
+  document.getElementById("contador").style.display="none";
+  document.querySelector('#telaProva .btn-roxo').style.display="none";
+  mostrar("telaProva");
+}
+
+/* ===================== HISTÓRICO ===================== */
+function salvarHistorico(acertos, nota, resp, tempo){
   let hist = JSON.parse(localStorage.getItem("historico")||"[]");
   hist.unshift({
     materia: materiaAtual,
     data: new Date().toLocaleString("pt-BR"),
-    acertos, total: questoesAtuais.length, nota
+    acertos, total: questoesAtuais.length, nota, tempo: tempo||0
   });
   localStorage.setItem("historico", JSON.stringify(hist));
 }
@@ -466,35 +442,60 @@ function salvarHistorico(acertos, nota, respostas){
 function verHistorico(){
   let hist = JSON.parse(localStorage.getItem("historico")||"[]");
   const div = document.getElementById("listaHistorico");
-  if(hist.length===0){ div.innerHTML="<p>Nenhum simulado feito ainda. 📭</p>"; }
-  else{
-    // agrupa por matéria
-    let grupos = {};
-    hist.forEach(h=>{ (grupos[h.materia]=grupos[h.materia]||[]).push(h); });
-    div.innerHTML = "";
-    for(let mat in grupos){
-      let notas = grupos[mat].map(h=>parseFloat(h.nota));
-      let media = (notas.reduce((a,b)=>a+b,0)/notas.length).toFixed(1);
-      div.innerHTML += `<h3>${mat} — média ${media}</h3>`;
-      grupos[mat].forEach(h=>{
+  div.innerHTML = "";
+  if(hist.length===0){ div.innerHTML="<p>Você ainda não fez nenhum simulado. 📝</p>"; }
+  else {
+    for(let mat in MATERIAS){
+      let itens = hist.filter(h=>h.materia===mat);
+      if(itens.length===0) continue;
+      let media = (itens.reduce((s,h)=>s+parseFloat(h.nota),0)/itens.length).toFixed(1);
+      div.innerHTML += `<h3>${MATERIAS[mat].icone} ${MATERIAS[mat].nome} <small>(média ${media})</small></h3>`;
+      itens.forEach(h=>{
         div.innerHTML += `<div class="hist-item">
           <span>${h.data}</span>
-          <span><b>Nota ${h.nota}</b> (${h.acertos}/${h.total})</span>
+          <span><b>Nota ${h.nota}</b> (${h.acertos}/${h.total}) • ⏱️ ${formatarTempo(h.tempo||0)}</span>
         </div>`;
       });
     }
   }
   mostrar("telaHistorico");
 }
-
 function limparHistorico(){
-  if(confirm("Apagar todo o histórico?")){
+  if(confirm("Tem certeza que deseja apagar todo o histórico?")){
     localStorage.removeItem("historico");
     verHistorico();
   }
 }
 
-function voltarInicio(){ mostrar("telaInicio"); }
+/* ===================== MEDALHAS ===================== */
+function nivelMedalha(nota){
+  if(nota>=10) return {emoji:"🥇", nome:"Ouro"};
+  if(nota>=8)  return {emoji:"🥈", nome:"Prata"};
+  if(nota>=6)  return {emoji:"🥉", nome:"Bronze"};
+  return null;
+}
+function verMedalhas(){
+  let hist = JSON.parse(localStorage.getItem("historico")||"[]");
+  const div = document.getElementById("listaMedalhas");
+  div.innerHTML = "";
+  for(let mat in MATERIAS){
+    let notas = hist.filter(h=>h.materia===mat).map(h=>parseFloat(h.nota));
+    let melhor = notas.length ? Math.max(...notas) : 0;
+    let med = nivelMedalha(melhor);
+    let bloq = med ? "" : "bloqueada";
+    let icone = med ? med.emoji : "🔒";
+    let texto = med
+      ? `Medalha de ${med.nome} • melhor nota: ${melhor.toFixed(1)}`
+      : "Faça um simulado e tire nota 6 ou mais para conquistar!";
+    div.innerHTML += `<div class="medalha ${bloq}">
+      <div class="icone">${icone}</div>
+      <div class="info">
+        <h3>${MATERIAS[mat].icone} ${MATERIAS[mat].nome}</h3>
+        <small>${texto}</small>
+      </div></div>`;
+  }
+  mostrar("telaMedalhas");
+}
 </script>
 </body>
 </html>
