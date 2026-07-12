@@ -57,8 +57,10 @@
     <p>Escolha a matéria e comece seu simulado:</p>
     <select id="selMateria">
       <option value="Historia">📜 História</option>
-      <option value="Geografia">🌍 Geografia</option>
+      <option value="Geografia">🗺️ Geografia</option>
+      <option value="Ciencias">🔬 Ciências</option>
     </select>
+
     <br><br>
     <button class="btn btn-verde" onclick="iniciarSimulado()">🚀 Iniciar Simulado</button>
     <button class="btn btn-roxo" onclick="verHistorico()">📊 Ver Histórico</button>
@@ -260,6 +262,82 @@ const BANCO = {
      pergunta:"Por que o Brasil foi dividido em regiões?",
      opcoes:{A:"Para agrupar estados que têm características parecidas e facilitar os estudos.",B:"Para deixar o mapa mais bonito.",C:"Porque cada região é um país diferente.",D:"Sem nenhum motivo importante."},
      correta:"A", feedback:"A regionalização agrupa estados com características naturais, culturais e econômicas parecidas, facilitando estudos e planejamento."}
+  ],
+    Ciencias: [
+    {id:1, conteudo_bncc:"Características da biosfera",
+     pergunta:"O que é a biosfera?",
+     opcoes:{A:"É o conjunto de todos os lugares do planeta onde existe vida.",B:"É apenas o fundo dos oceanos.",C:"É um planeta sem vida.",D:"É só o ar que respiramos."},
+     correta:"A", feedback:"A biosfera é a parte do planeta Terra onde existe vida: envolve terra, água e ar habitados por seres vivos."},
+
+    {id:2, conteudo_bncc:"Características da biosfera",
+     pergunta:"Quais elementos são essenciais para a vida na biosfera?",
+     opcoes:{A:"Apenas pedras.",B:"Água, ar, luz do Sol e nutrientes.",C:"Somente plástico.",D:"Apenas metais."},
+     correta:"B", feedback:"A vida depende de água, ar, luz do Sol e nutrientes, que juntos permitem a existência dos seres vivos."},
+
+    {id:3, conteudo_bncc:"Características da biosfera",
+     pergunta:"A biosfera é formada pela junção de três partes do planeta. Quais são elas?",
+     opcoes:{A:"Terra (litosfera), água (hidrosfera) e ar (atmosfera).",B:"Sol, Lua e estrelas.",C:"Cidade, campo e praia.",D:"Norte, Sul e Centro."},
+     correta:"A", feedback:"A biosfera surge do encontro da litosfera (terra), hidrosfera (água) e atmosfera (ar), onde a vida acontece."},
+
+    {id:4, conteudo_bncc:"Relações ecológicas",
+     pergunta:"O que são relações ecológicas?",
+     opcoes:{A:"Brincadeiras entre crianças.",B:"As interações que acontecem entre os seres vivos na natureza.",C:"Regras de trânsito.",D:"Tipos de rochas."},
+     correta:"B", feedback:"Relações ecológicas são as interações entre os seres vivos, que podem ajudar ou prejudicar uns aos outros."},
+
+    {id:5, conteudo_bncc:"Relações ecológicas",
+     pergunta:"As relações ecológicas podem ser classificadas em dois grandes grupos. Quais são?",
+     opcoes:{A:"Grandes e pequenas.",B:"Rápidas e lentas.",C:"Harmônicas e desarmônicas.",D:"Quentes e frias."},
+     correta:"C", feedback:"As relações ecológicas dividem-se em harmônicas (sem prejuízo) e desarmônicas (quando um ser é prejudicado)."},
+
+    {id:6, conteudo_bncc:"Relações ecológicas",
+     pergunta:"Uma relação ecológica pode acontecer entre seres:",
+     opcoes:{A:"Somente da mesma espécie.",B:"Somente de espécies diferentes.",C:"Da mesma espécie ou de espécies diferentes.",D:"Apenas entre plantas."},
+     correta:"C", feedback:"As relações podem ocorrer entre seres da mesma espécie (intraespecíficas) ou de espécies diferentes (interespecíficas)."},
+
+    {id:7, conteudo_bncc:"Relações harmônicas",
+     pergunta:"O que são relações harmônicas?",
+     opcoes:{A:"Relações em que nenhum dos seres vivos é prejudicado.",B:"Relações em que todos brigam.",C:"Relações em que um ser sempre morre.",D:"Relações que não existem."},
+     correta:"A", feedback:"Nas relações harmônicas, os seres vivos convivem sem que nenhum deles seja prejudicado; um ou os dois podem se beneficiar."},
+
+    {id:8, conteudo_bncc:"Relações harmônicas",
+     pergunta:"A abelha se alimenta do néctar da flor e, ao mesmo tempo, ajuda na polinização. Que tipo de relação é essa?",
+     opcoes:{A:"Desarmônica.",B:"Harmônica, pois os dois se beneficiam.",C:"Uma briga entre eles.",D:"Nenhuma relação."},
+     correta:"B", feedback:"É uma relação harmônica: a abelha ganha alimento e a flor é polinizada. Os dois se beneficiam."},
+
+    {id:9, conteudo_bncc:"Relações harmônicas",
+     pergunta:"Um cardume de peixes que nadam juntos para se proteger é um exemplo de relação harmônica entre seres:",
+     opcoes:{A:"De espécies diferentes.",B:"Da mesma espécie.",C:"Que se prejudicam.",D:"Sem vida."},
+     correta:"B", feedback:"O cardume é uma relação harmônica entre seres da mesma espécie, que se unem para se proteger e sobreviver melhor."},
+
+    {id:10, conteudo_bncc:"Relações harmônicas",
+     pergunta:"Quando o peixe-palhaço vive protegido entre os tentáculos da anêmona, sem prejudicá-la, temos uma relação:",
+     opcoes:{A:"Harmônica.",B:"Desarmônica.",C:"De predação.",D:"De competição."},
+     correta:"A", feedback:"É uma relação harmônica: o peixe-palhaço ganha proteção e a anêmona não é prejudicada."},
+
+    {id:11, conteudo_bncc:"Relações desarmônicas",
+     pergunta:"O que são relações desarmônicas?",
+     opcoes:{A:"Relações em que todos se ajudam.",B:"Relações em que pelo menos um dos seres vivos é prejudicado.",C:"Relações que só existem entre plantas.",D:"Relações sem nenhum contato."},
+     correta:"B", feedback:"Nas relações desarmônicas, pelo menos um dos seres envolvidos é prejudicado pela interação."},
+
+    {id:12, conteudo_bncc:"Relações desarmônicas",
+     pergunta:"O leão que caça e come uma zebra é um exemplo de qual relação desarmônica?",
+     opcoes:{A:"Polinização.",B:"Predação.",C:"Cardume.",D:"Amizade."},
+     correta:"B", feedback:"É predação: um ser vivo (predador) caça e se alimenta de outro (presa), que é prejudicado."},
+
+    {id:13, conteudo_bncc:"Relações desarmônicas",
+     pergunta:"O carrapato que vive no corpo do cachorro sugando seu sangue é um exemplo de:",
+     opcoes:{A:"Parasitismo.",B:"Relação harmônica.",C:"Polinização.",D:"Cardume."},
+     correta:"A", feedback:"É parasitismo: o carrapato (parasita) se beneficia sugando o sangue, enquanto o cachorro (hospedeiro) é prejudicado."},
+
+    {id:14, conteudo_bncc:"Relações desarmônicas",
+     pergunta:"Quando dois animais disputam o mesmo alimento ou território, temos uma relação de:",
+     opcoes:{A:"Competição.",B:"Amizade.",C:"Polinização.",D:"Proteção mútua."},
+     correta:"A", feedback:"É competição: os seres vivos disputam recursos como alimento, água ou espaço, o que pode prejudicar um ou os dois."},
+
+    {id:15, conteudo_bncc:"Relações desarmônicas",
+     pergunta:"Qual das opções abaixo é uma relação DESARMÔNICA?",
+     opcoes:{A:"Abelha e flor.",B:"Cardume de peixes.",C:"Leão caçando a zebra.",D:"Peixe-palhaço e anêmona."},
+     correta:"C", feedback:"O leão caçando a zebra é predação, uma relação desarmônica, pois a presa é prejudicada. As outras são harmônicas."}
   ]
 };
 
@@ -296,6 +374,7 @@ function refazerProva(){
 }
 
 function renderProva(){
+  const icones = { Historia: "📜", Geografia: "🗺️", Ciencias: "🔬" };
   document.getElementById("tituloProva").innerText = "📜 Simulado de "+materiaAtual;
   const div = document.getElementById("questoes");
   div.innerHTML = "";
