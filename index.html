@@ -85,6 +85,7 @@
         <option value="EducacaoFisica">⚽ Educação Física</option>
         <option value="Ingles">🇬🇧 Língua Inglesa</option>
         <option value="Matematica">🔢 Matemática</option>
+        <option value="Portugues">📖 Língua Portuguesa</option>
       </select>
       <button class="btn btn-verde" onclick="comecarProva()">▶️ Começar Simulado</button>
       <button class="btn btn-azul" onclick="verHistorico()">📊 Meu Histórico</button>
@@ -553,16 +554,91 @@ const BANCO = {
      imagem:`🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑`,
      opcoes:{A:"11 cadeiras.",B:"25 cadeiras.",C:"30 cadeiras.",D:"36 cadeiras."},
      correta:"C", feedback:"São 5 fileiras com 6 cadeiras: 5 × 6 = 30 cadeiras."}
+  ],
+  Portugues: [
+    {id:1, conteudo_bncc:"Leitura e interpretação",
+     pergunta:"Leia: 'O gato subiu no telhado para fugir da chuva.' Por que o gato subiu no telhado?",
+     opcoes:{A:"Para brincar.",B:"Para fugir da chuva.",C:"Para caçar um rato.",D:"Para dormir."},
+     correta:"B", feedback:"O texto diz claramente que o gato subiu no telhado 'para fugir da chuva'."},
+    {id:2, conteudo_bncc:"Leitura e interpretação",
+     pergunta:"Leia: 'Maria acordou cedo, tomou café e foi para a escola feliz.' Como Maria foi para a escola?",
+     opcoes:{A:"Triste.",B:"Com sono.",C:"Feliz.",D:"Com raiva."},
+     correta:"C", feedback:"O texto termina dizendo que Maria foi para a escola 'feliz'."},
+    {id:3, conteudo_bncc:"Leitura e interpretação",
+     pergunta:"Leia: 'A joaninha é um inseto pequeno e colorido que ajuda as plantas.' Qual é o assunto principal do texto?",
+     opcoes:{A:"Um cachorro.",B:"A joaninha.",C:"Uma flor.",D:"A chuva."},
+     correta:"B", feedback:"O texto todo fala sobre a joaninha, que é o assunto (tema) principal."},
+    {id:4, conteudo_bncc:"Sílaba tônica - Oxítona",
+     pergunta:"A palavra 'café' tem a sílaba mais forte na última sílaba. Como ela é classificada?",
+     opcoes:{A:"Oxítona.",B:"Paroxítona.",C:"Proparoxítona.",D:"Monossílaba."},
+     correta:"A", feedback:"Em 'ca-FÉ', a sílaba tônica (mais forte) é a última. Por isso é uma palavra oxítona."},
+    {id:5, conteudo_bncc:"Sílaba tônica - Paroxítona",
+     pergunta:"Na palavra 'cadeira', qual é a sílaba tônica (mais forte)?",
+     opcoes:{A:"ca.",B:"dei.",C:"ra.",D:"Nenhuma."},
+     correta:"B", feedback:"Em 'ca-DEI-ra', a força está na penúltima sílaba 'dei'. Logo, é uma palavra paroxítona."},
+    {id:6, conteudo_bncc:"Sílaba tônica - Proparoxítona",
+     pergunta:"A palavra 'médico' tem a sílaba mais forte na antepenúltima sílaba. Como é classificada?",
+     opcoes:{A:"Oxítona.",B:"Paroxítona.",C:"Proparoxítona.",D:"Átona."},
+     correta:"C", feedback:"Em 'MÉ-di-co', a força está na antepenúltima sílaba. Palavras assim são proparoxítonas (sempre acentuadas)."},
+    {id:7, conteudo_bncc:"Sílaba tônica",
+     pergunta:"Qual destas palavras é OXÍTONA (força na última sílaba)?",
+     opcoes:{A:"Bola.",B:"Sofá.",C:"Árvore.",D:"Janela."},
+     correta:"B", feedback:"Em 'so-FÁ', a última sílaba é a mais forte. Por isso é oxítona."},
+    {id:8, conteudo_bncc:"Pronome pessoal",
+     pergunta:"Na frase 'Eu gosto de ler', a palavra 'Eu' é um:",
+     opcoes:{A:"Pronome pessoal.",B:"Verbo.",C:"Adjetivo.",D:"Substantivo."},
+     correta:"A", feedback:"'Eu' é um pronome pessoal, pois indica a pessoa que fala. Outros exemplos: tu, ele, nós, vós, eles."},
+    {id:9, conteudo_bncc:"Pronome pessoal",
+     pergunta:"Qual das opções é formada SOMENTE por pronomes pessoais?",
+     opcoes:{A:"Eu, tu, ele.",B:"Casa, bola, gato.",C:"Correr, pular, ler.",D:"Bonito, alto, feliz."},
+     correta:"A", feedback:"Eu, tu e ele são pronomes pessoais. Os outros grupos são substantivos, verbos e adjetivos."},
+    {id:10, conteudo_bncc:"Pronome pessoal",
+     pergunta:"Complete: '_____ vamos ao parque amanhã.' Qual pronome pessoal completa a frase (várias pessoas)?",
+     opcoes:{A:"Eu.",B:"Nós.",C:"Ele.",D:"Tu."},
+     correta:"B", feedback:"'Nós' indica várias pessoas, combinando com 'vamos'. Nós vamos ao parque amanhã."},
+    {id:11, conteudo_bncc:"Pronome oblíquo",
+     pergunta:"Na frase 'A professora me chamou', a palavra 'me' é um:",
+     opcoes:{A:"Pronome pessoal do caso reto.",B:"Pronome oblíquo.",C:"Verbo.",D:"Substantivo."},
+     correta:"B", feedback:"'Me' é um pronome oblíquo. Outros exemplos: te, se, o, a, nos, lhe."},
+    {id:12, conteudo_bncc:"Pronome oblíquo",
+     pergunta:"Qual das palavras abaixo é um pronome oblíquo?",
+     opcoes:{A:"Ela.",B:"Nós.",C:"Te.",D:"Eu."},
+     correta:"C", feedback:"'Te' é um pronome oblíquo (Ex: 'Eu te amo'). Já ela, nós e eu são pronomes pessoais do caso reto."},
+    {id:13, conteudo_bncc:"Pronome demonstrativo",
+     pergunta:"Na frase 'Este livro é meu', a palavra 'Este' indica algo que está:",
+     opcoes:{A:"Longe de quem fala.",B:"Perto de quem fala.",C:"Escondido.",D:"No passado."},
+     correta:"B", feedback:"'Este' é um pronome demonstrativo que indica algo PERTO de quem fala."},
+    {id:14, conteudo_bncc:"Pronome demonstrativo",
+     pergunta:"Qual das opções abaixo é um pronome demonstrativo?",
+     opcoes:{A:"Aquele.",B:"Correr.",C:"Bonito.",D:"Nós."},
+     correta:"A", feedback:"'Aquele' é um pronome demonstrativo (indica algo distante). Também são: este, esse, aquilo, isto, isso."},
+    {id:15, conteudo_bncc:"Pronome demonstrativo",
+     pergunta:"Complete: '_____ sapatos aqui nos meus pés são novos.' Qual pronome demonstrativo indica algo perto?",
+     opcoes:{A:"Aqueles.",B:"Estes.",C:"Aquilo.",D:"Isso."},
+     correta:"B", feedback:"'Estes' indica algo perto de quem fala (aqui, nos meus pés). Estes sapatos são novos."},
+    {id:16, conteudo_bncc:"Ortografia",
+     pergunta:"Qual é a forma CORRETA de escrever a palavra?",
+     opcoes:{A:"Caza.",B:"Casa.",C:"Kaza.",D:"Cassa."},
+     correta:"B", feedback:"A forma correta é 'casa', escrita com apenas um 's', que tem som de 'z' entre vogais."},
+    {id:17, conteudo_bncc:"Ortografia",
+     pergunta:"Complete corretamente: 'A criança comeu um pe___e no almoço.'",
+     opcoes:{A:"pexe.",B:"peische.",C:"peixe.",D:"peicxe."},
+     correta:"C", feedback:"A forma correta é 'peixe', escrita com 'x'. É uma palavra que devemos memorizar."},
+    {id:18, conteudo_bncc:"Ortografia",
+     pergunta:"Qual palavra está escrita de forma ERRADA?",
+     opcoes:{A:"Bicicleta.",B:"Escola.",C:"Jiletti.",D:"Amarelo."},
+     correta:"C", feedback:"A forma correta é 'gilete', com 'g' e um só 't'. As outras palavras estão corretas."}
   ]
 };
 
 const MATERIAS = {
-  Historia:       {nome:"História",         icone:"📜"},
-  Geografia:      {nome:"Geografia",        icone:"🗺️"},
-  Ciencias:       {nome:"Ciências",         icone:"🔬"},
-  EducacaoFisica: {nome:"Educação Física",  icone:"⚽"},
-  Ingles:         {nome:"Língua Inglesa",   icone:"🇬🇧"},
-  Matematica:     {nome:"Matemática",       icone:"🔢"}
+  Historia:       {nome:"História",          icone:"📜"},
+  Geografia:      {nome:"Geografia",         icone:"🗺️"},
+  Ciencias:       {nome:"Ciências",          icone:"🔬"},
+  EducacaoFisica: {nome:"Educação Física",   icone:"⚽"},
+  Ingles:         {nome:"Língua Inglesa",    icone:"🇬🇧"},
+  Matematica:     {nome:"Matemática",        icone:"🔢"},
+  Portugues:      {nome:"Língua Portuguesa", icone:"📖"}
 };
 
 /* ===================== ESTADO ===================== */
@@ -591,7 +667,7 @@ function comecarProva(){
 function refazerProva(){ comecarProva(); }
 
 function renderProva(){
-  const icones = { Historia:"📜", Geografia:"🗺️", Ciencias:"🔬", EducacaoFisica:"⚽", Ingles:"🇬🇧", Matematica:"🔢" };
+  const icones = { Historia:"📜", Geografia:"🗺️", Ciencias:"🔬", EducacaoFisica:"⚽", Ingles:"🇬🇧", Matematica:"🔢", Portugues:"📖" };
   document.getElementById("tituloProva").innerText =
     (icones[materiaAtual]||"📘") + " Simulado de " + MATERIAS[materiaAtual].nome;
   const cont = document.getElementById("questoes");
