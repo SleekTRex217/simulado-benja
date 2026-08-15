@@ -55,6 +55,17 @@
   .bloqueada{opacity:.45;filter:grayscale(1)}
   .hide{display:none}
   small{color:#777}
+  .ilustra{text-align:center;font-size:34px;line-height:1.4;margin:10px 0;
+    background:#f4f7fb;border-radius:16px;padding:14px}
+  .ilustra table{margin:0 auto;border-collapse:collapse;font-size:16px}
+  .ilustra td,.ilustra th{border:2px solid var(--roxo);padding:8px 14px}
+  .ilustra th{background:#ede4ff;color:var(--roxo-esc)}
+  .forma{display:inline-block;margin:4px}
+  .quadrado{width:60px;height:60px;background:var(--azul);border-radius:6px}
+  .triangulo{width:0;height:0;border-left:34px solid transparent;
+    border-right:34px solid transparent;border-bottom:60px solid var(--verde)}
+  .circulo{width:60px;height:60px;background:var(--amarelo);border-radius:50%}
+  .retangulo{width:90px;height:50px;background:var(--vermelho);border-radius:6px}
 </style>
 </head>
 <body>
@@ -73,6 +84,7 @@
         <option value="Ciencias">🔬 Ciências</option>
         <option value="EducacaoFisica">⚽ Educação Física</option>
         <option value="Ingles">🇬🇧 Língua Inglesa</option>
+        <option value="Matematica">🔢 Matemática</option>
       </select>
       <button class="btn btn-verde" onclick="comecarProva()">▶️ Começar Simulado</button>
       <button class="btn btn-azul" onclick="verHistorico()">📊 Meu Histórico</button>
@@ -445,6 +457,102 @@ const BANCO = {
      pergunta:"Quando o dia está com muito sol, dizemos que está:",
      opcoes:{A:"Cloudy.",B:"Snowy.",C:"Sunny.",D:"Cold."},
      correta:"C", feedback:"'Sunny' significa ensolarado. Vem da palavra 'sun', que significa sol."}
+  ],
+  Matematica: [
+    {id:1, conteudo_bncc:"Figuras geométricas",
+     pergunta:"Qual é o nome da figura geométrica abaixo?",
+     imagem:`<span class="forma triangulo"></span>`,
+     opcoes:{A:"Quadrado.",B:"Triângulo.",C:"Círculo.",D:"Retângulo."},
+     correta:"B", feedback:"É um triângulo! Ele tem 3 lados e 3 vértices (pontas)."},
+    {id:2, conteudo_bncc:"Figuras geométricas",
+     pergunta:"Observe a figura. Quantos lados tem esse quadrado?",
+     imagem:`<span class="forma quadrado"></span>`,
+     opcoes:{A:"3 lados.",B:"4 lados iguais.",C:"5 lados.",D:"Nenhum lado."},
+     correta:"B", feedback:"O quadrado tem 4 lados do mesmo tamanho (iguais) e 4 cantos (vértices)."},
+    {id:3, conteudo_bncc:"Figuras geométricas",
+     pergunta:"Qual figura NÃO tem lados retos, sendo totalmente redonda?",
+     imagem:`<span class="forma circulo"></span>`,
+     opcoes:{A:"Triângulo.",B:"Quadrado.",C:"Círculo.",D:"Retângulo."},
+     correta:"C", feedback:"O círculo é redondo e não possui lados retos nem vértices."},
+    {id:4, conteudo_bncc:"Figuras geométricas",
+     pergunta:"Observe a figura. Qual é o nome dela?",
+     imagem:`<span class="forma retangulo"></span>`,
+     opcoes:{A:"Círculo.",B:"Triângulo.",C:"Retângulo.",D:"Estrela."},
+     correta:"C", feedback:"É um retângulo! Ele tem 4 lados, sendo 2 maiores e 2 menores."},
+    {id:5, conteudo_bncc:"Multiplicação",
+     pergunta:"Observe os grupos de estrelas. Quanto é 3 × 4?",
+     imagem:`⭐⭐⭐⭐<br>⭐⭐⭐⭐<br>⭐⭐⭐⭐`,
+     opcoes:{A:"7.",B:"10.",C:"12.",D:"14."},
+     correta:"C", feedback:"São 3 fileiras com 4 estrelas cada. 3 × 4 = 12 estrelas no total."},
+    {id:6, conteudo_bncc:"Multiplicação",
+     pergunta:"Cada caixa tem 5 bolas. Quantas bolas há em 2 caixas? (2 × 5)",
+     imagem:`📦 ⚽⚽⚽⚽⚽<br>📦 ⚽⚽⚽⚽⚽`,
+     opcoes:{A:"7.",B:"10.",C:"12.",D:"15."},
+     correta:"B", feedback:"Duas caixas com 5 bolas cada: 2 × 5 = 10 bolas."},
+    {id:7, conteudo_bncc:"Multiplicação",
+     pergunta:"Quanto é 6 × 3?",
+     opcoes:{A:"9.",B:"12.",C:"18.",D:"21."},
+     correta:"C", feedback:"6 × 3 significa somar o 6 três vezes: 6 + 6 + 6 = 18."},
+    {id:8, conteudo_bncc:"Multiplicação",
+     pergunta:"Uma bicicleta tem 2 rodas. Quantas rodas há em 4 bicicletas?",
+     imagem:`🚲🚲🚲🚲`,
+     opcoes:{A:"6 rodas.",B:"8 rodas.",C:"10 rodas.",D:"4 rodas."},
+     correta:"B", feedback:"Cada bicicleta tem 2 rodas: 4 × 2 = 8 rodas no total."},
+    {id:9, conteudo_bncc:"Problemas de adição",
+     pergunta:"Ana tinha 25 figurinhas e ganhou mais 18 da sua amiga. Com quantas figurinhas ela ficou?",
+     opcoes:{A:"33 figurinhas.",B:"43 figurinhas.",C:"53 figurinhas.",D:"40 figurinhas."},
+     correta:"B", feedback:"Basta somar: 25 + 18 = 43 figurinhas."},
+    {id:10, conteudo_bncc:"Problemas de adição",
+     pergunta:"Em uma festa havia 34 crianças e chegaram mais 27. Quantas crianças ficaram na festa?",
+     opcoes:{A:"51.",B:"61.",C:"71.",D:"57."},
+     correta:"B", feedback:"Somando: 34 + 27 = 61 crianças na festa."},
+    {id:11, conteudo_bncc:"Problemas de subtração",
+     pergunta:"João tinha R$ 50 e gastou R$ 32 num brinquedo. Quanto sobrou?",
+     imagem:`💰 R$ 50 → 🧸 R$ 32`,
+     opcoes:{A:"R$ 18.",B:"R$ 22.",C:"R$ 28.",D:"R$ 12."},
+     correta:"A", feedback:"Fazemos a subtração: 50 − 32 = 18. Sobraram R$ 18."},
+    {id:12, conteudo_bncc:"Problemas de subtração",
+     pergunta:"Uma caixa tinha 60 lápis. Foram usados 24. Quantos lápis restaram?",
+     opcoes:{A:"36 lápis.",B:"46 lápis.",C:"26 lápis.",D:"44 lápis."},
+     correta:"A", feedback:"Subtraindo: 60 − 24 = 36 lápis restantes."},
+    {id:13, conteudo_bncc:"Leitura e interpretação de tabelas",
+     pergunta:"Veja a tabela de frutas vendidas. Qual fruta foi a MAIS vendida?",
+     imagem:`<table><tr><th>Fruta</th><th>Quantidade</th></tr>
+       <tr><td>🍎 Maçã</td><td>12</td></tr>
+       <tr><td>🍌 Banana</td><td>20</td></tr>
+       <tr><td>🍊 Laranja</td><td>15</td></tr></table>`,
+     opcoes:{A:"Maçã.",B:"Banana.",C:"Laranja.",D:"Todas iguais."},
+     correta:"B", feedback:"A banana teve 20 unidades, o maior número da tabela. Por isso foi a mais vendida."},
+    {id:14, conteudo_bncc:"Leitura e interpretação de tabelas",
+     pergunta:"Usando a tabela, quantas frutas foram vendidas somando maçã e laranja?",
+     imagem:`<table><tr><th>Fruta</th><th>Quantidade</th></tr>
+       <tr><td>🍎 Maçã</td><td>12</td></tr>
+       <tr><td>🍌 Banana</td><td>20</td></tr>
+       <tr><td>🍊 Laranja</td><td>15</td></tr></table>`,
+     opcoes:{A:"25 frutas.",B:"27 frutas.",C:"32 frutas.",D:"20 frutas."},
+     correta:"B", feedback:"Somamos maçã e laranja: 12 + 15 = 27 frutas."},
+    {id:15, conteudo_bncc:"Leitura e interpretação de tabelas",
+     pergunta:"Veja a tabela de gols do campeonato. Qual time fez MENOS gols?",
+     imagem:`<table><tr><th>Time</th><th>Gols</th></tr>
+       <tr><td>Leões</td><td>8</td></tr>
+       <tr><td>Tigres</td><td>5</td></tr>
+       <tr><td>Águias</td><td>11</td></tr></table>`,
+     opcoes:{A:"Leões.",B:"Tigres.",C:"Águias.",D:"Todos iguais."},
+     correta:"B", feedback:"Os Tigres fizeram apenas 5 gols, o menor número da tabela."},
+    {id:16, conteudo_bncc:"Leitura e interpretação",
+     pergunta:"Leia o problema: 'Pedro leu 3 livros por mês durante 4 meses.' Quantos livros ele leu ao todo?",
+     imagem:`📚📚📚 (por mês) × 4 meses`,
+     opcoes:{A:"7 livros.",B:"10 livros.",C:"12 livros.",D:"9 livros."},
+     correta:"C", feedback:"É uma multiplicação: 3 livros × 4 meses = 12 livros no total."},
+    {id:17, conteudo_bncc:"Problemas mistos",
+     pergunta:"Maria tinha 40 balas. Deu 15 para o irmão e comeu 8. Quantas balas sobraram?",
+     opcoes:{A:"17 balas.",B:"25 balas.",C:"32 balas.",D:"23 balas."},
+     correta:"A", feedback:"Primeiro somamos o que saiu: 15 + 8 = 23. Depois: 40 − 23 = 17 balas."},
+    {id:18, conteudo_bncc:"Multiplicação",
+     pergunta:"Numa sala há 5 fileiras com 6 cadeiras cada. Quantas cadeiras há na sala?",
+     imagem:`🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑<br>🪑🪑🪑🪑🪑🪑`,
+     opcoes:{A:"11 cadeiras.",B:"25 cadeiras.",C:"30 cadeiras.",D:"36 cadeiras."},
+     correta:"C", feedback:"São 5 fileiras com 6 cadeiras: 5 × 6 = 30 cadeiras."}
   ]
 };
 
@@ -453,7 +561,8 @@ const MATERIAS = {
   Geografia:      {nome:"Geografia",        icone:"🗺️"},
   Ciencias:       {nome:"Ciências",         icone:"🔬"},
   EducacaoFisica: {nome:"Educação Física",  icone:"⚽"},
-  Ingles:         {nome:"Língua Inglesa",   icone:"🇬🇧"}
+  Ingles:         {nome:"Língua Inglesa",   icone:"🇬🇧"},
+  Matematica:     {nome:"Matemática",       icone:"🔢"}
 };
 
 /* ===================== ESTADO ===================== */
@@ -482,7 +591,7 @@ function comecarProva(){
 function refazerProva(){ comecarProva(); }
 
 function renderProva(){
-  const icones = { Historia:"📜", Geografia:"🗺️", Ciencias:"🔬", EducacaoFisica:"⚽", Ingles:"🇬🇧" };
+  const icones = { Historia:"📜", Geografia:"🗺️", Ciencias:"🔬", EducacaoFisica:"⚽", Ingles:"🇬🇧", Matematica:"🔢" };
   document.getElementById("tituloProva").innerText =
     (icones[materiaAtual]||"📘") + " Simulado de " + MATERIAS[materiaAtual].nome;
   const cont = document.getElementById("questoes");
@@ -493,8 +602,9 @@ function renderProva(){
       opc += `<button class="opcao" data-q="${i}" data-l="${l}" onclick="selecionar(${i},'${l}')">
         <span class="letra">${l}</span>${q.opcoes[l]}</button>`;
     }
+    let ilustra = q.imagem ? `<div class="ilustra">${q.imagem}</div>` : "";
     cont.innerHTML += `<div class="card">
-      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${opc}</div>`;
+      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${ilustra}${opc}</div>`;
   });
   atualizarProgresso();
   iniciarCronometro();
@@ -561,7 +671,10 @@ function mostrarResultado(acertos, nota, resp, tempo){
 
 function verGabarito(){
   const cont = document.getElementById("questoes");
-  cont.innerHTML = "<div class='card'><h2>🔍 Gabarito Comentado</h2></div>";
+    let ilustra = q.imagem ? `<div class="ilustra">${q.imagem}</div>` : "";
+    cont.innerHTML += `<div class="card">
+      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${ilustra}${opc}
+      <div class="feedback">💡 <b>Explicação:</b> ${q.feedback}</div></div>`;
   questoesAtuais.forEach((q,i)=>{
     let opc = "";
     for(let l in q.opcoes){
