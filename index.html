@@ -297,7 +297,7 @@ const BANCO = {
      opcoes:{A:"Abelha e flor.",B:"Cardume de peixes.",C:"Leão caçando a zebra.",D:"Peixe-palhaço e anêmona."},
      correta:"C", feedback:"O leão caçando a zebra é predação, uma relação desarmônica, pois a presa é prejudicada. As outras são harmônicas."}
   ],
-  EducacaoFisica: [
+    EducacaoFisica: [
     {id:1, conteudo_bncc:"Lutas x Brigas",
      pergunta:"Qual é a principal diferença entre uma luta e uma briga?",
      opcoes:{A:"A luta tem regras, técnicas e respeito; a briga não tem regras e busca machucar.",B:"Não existe diferença nenhuma entre elas.",C:"A briga tem árbitros e a luta não.",D:"A luta é sempre violenta e a briga é tranquila."},
@@ -374,9 +374,10 @@ const BANCO = {
 };
 
 const MATERIAS = {
-  Historia:  {nome:"História",  icone:"📜"},
-  Geografia: {nome:"Geografia", icone:"🗺️"},
-  Ciencias:  {nome:"Ciências",  icone:"🔬"}
+  Historia:       {nome:"História",         icone:"📜"},
+  Geografia:      {nome:"Geografia",        icone:"🗺️"},
+  Ciencias:       {nome:"Ciências",         icone:"🔬"},
+  EducacaoFisica: {nome:"Educação Física",  icone:"⚽"}
 };
 
 /* ===================== ESTADO ===================== */
@@ -405,7 +406,7 @@ function comecarProva(){
 function refazerProva(){ comecarProva(); }
 
 function renderProva(){
-  const icones = { Historia:"📜", Geografia:"🗺️", Ciencias:"🔬" };
+  const icones = { Historia:"📜", Geografia:"🗺️", Ciencias:"🔬", EducacaoFisica:"⚽" };
   document.getElementById("tituloProva").innerText =
     (icones[materiaAtual]||"📘") + " Simulado de " + MATERIAS[materiaAtual].nome;
   const cont = document.getElementById("questoes");
