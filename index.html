@@ -1245,7 +1245,7 @@ function enviarProva(){
   }
   let tempo = pararCronometro();
   let acertos = 0;
-  questoesAtuais.forEach((q,i)=>{ if(respostas[i]===q.correta) acertos++; });
+  questoesAtuais.forEach((q,i)=>{ if(respostas[i]===q.resposta_correta) acertos++; });
   let nota = (acertos/questoesAtuais.length*10).toFixed(1);
   salvarHistorico(acertos, nota, respostas, tempo);
   mostrarResultado(acertos, nota, respostas, tempo);
