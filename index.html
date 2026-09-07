@@ -1286,27 +1286,27 @@ function mostrarResultado(acertos, nota, resp, tempo){
 
 function verGabarito(){
   const cont = document.getElementById("questoes");
+  cont.innerHTML = ""; // limpa antes de renderizar
+
+  questoesAtuais.forEach((q, i) => {
     let ilustra = q.imagem ? `<div class="ilustra">${q.imagem}</div>` : "";
-    cont.innerHTML += `<div class="card">
-      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${ilustra}${opc}
-      <div class="feedback">💡 <b>Explicação:</b> ${q.feedback}</div></div>`;
-  questoesAtuais.forEach((q,i)=>{
     let opc = "";
-    for(let l in q.opcoes){
+    for (let l in q.opcoes){
       let cls = "opcao";
-      if(l===q.correta) cls+=" certa";
-      else if(respostas[i]===l) cls+=" errada";
+      if (l === q.correta) cls += " certa";
+      else if (respostas[i] === l) cls += " errada";
       opc += `<button class="${cls}" disabled><span class="letra">${l}</span>${q.opcoes[l]}</button>`;
     }
     cont.innerHTML += `<div class="card">
-      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${opc}
+      <p><b>Questão ${i+1}.</b> ${q.pergunta}</p>${ilustra}${opc}
       <div class="feedback">💡 <b>Explicação:</b> ${q.feedback}</div></div>`;
   });
+
   document.getElementById("tituloProva").innerText = "🔍 Gabarito — " + MATERIAS[materiaAtual].nome;
-  document.querySelector("#telaProva .progress").parentElement.parentElement.querySelector(".progress").style.display="none";
-  document.getElementById("cronometro").style.display="none";
-  document.getElementById("contador").style.display="none";
-  document.querySelector('#telaProva .btn-roxo').style.display="none";
+  document.querySelector("#telaProva .progress").parentElement.parentElement.querySelector(".progress").style.display = "none";
+  document.getElementById("cronometro").style.display = "none";
+  document.getElementById("contador").style.display = "none";
+  document.querySelector('#telaProva .btn-roxo').style.display = "none";
   mostrar("telaProva");
 }
 
