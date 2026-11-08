@@ -1047,127 +1047,457 @@ const BANCO = {
   }
 ],
   Portugues: [
-    {id:1, conteudo_bncc:"Leitura e interpretação",
-     pergunta:"Leia: 'O gato subiu no telhado para fugir da chuva.' Por que o gato subiu no telhado?",
-     opcoes:{A:"Para brincar.",B:"Para fugir da chuva.",C:"Para caçar um rato.",D:"Para dormir."},
-     correta:"B", feedback:"O texto diz claramente que o gato subiu no telhado 'para fugir da chuva'."},
-    {id:2, conteudo_bncc:"Leitura e interpretação",
-     pergunta:"Leia: 'A joaninha é um inseto pequeno e colorido que ajuda as plantas.' Qual é o assunto principal do texto?",
-     opcoes:{A:"Um cachorro.",B:"A joaninha.",C:"Uma flor.",D:"A chuva."},
-     correta:"B", feedback:"O texto todo fala sobre a joaninha, que é o assunto (tema) principal."},
-    {id:3, conteudo_bncc:"Sílaba tônica - Oxítona",
-     pergunta:"A palavra 'café' tem a sílaba mais forte na última sílaba. Como ela é classificada?",
-     opcoes:{A:"Oxítona.",B:"Paroxítona.",C:"Proparoxítona.",D:"Monossílaba."},
-     correta:"A", feedback:"Em 'ca-FÉ', a sílaba tônica (mais forte) é a última. Por isso é uma palavra oxítona."},
-    {id:4, conteudo_bncc:"Sílaba tônica - Paroxítona",
-     pergunta:"Na palavra 'cadeira', qual é a sílaba tônica (mais forte)?",
-     opcoes:{A:"ca.",B:"dei.",C:"ra.",D:"Nenhuma."},
-     correta:"B", feedback:"Em 'ca-DEI-ra', a força está na penúltima sílaba 'dei'. Logo, é uma palavra paroxítona."},
-    {id:5, conteudo_bncc:"Sílaba tônica - Proparoxítona",
-     pergunta:"A palavra 'médico' tem a sílaba mais forte na antepenúltima sílaba. Como é classificada?",
-     opcoes:{A:"Oxítona.",B:"Paroxítona.",C:"Proparoxítona.",D:"Átona."},
-     correta:"C", feedback:"Em 'MÉ-di-co', a força está na antepenúltima sílaba. Palavras assim são proparoxítonas (sempre acentuadas)."},
-    {id:6, conteudo_bncc:"Pronome pessoal",
-     pergunta:"Na frase 'Eu gosto de ler', a palavra 'Eu' é um:",
-     opcoes:{A:"Pronome pessoal.",B:"Verbo.",C:"Adjetivo.",D:"Substantivo."},
-     correta:"A", feedback:"'Eu' é um pronome pessoal, pois indica a pessoa que fala. Outros: tu, ele, nós, vós, eles."},
-    {id:7, conteudo_bncc:"Pronome pessoal",
-     pergunta:"Complete: '_____ vamos ao parque amanhã.' Qual pronome pessoal completa a frase (várias pessoas)?",
-     opcoes:{A:"Eu.",B:"Nós.",C:"Ele.",D:"Tu."},
-     correta:"B", feedback:"'Nós' indica várias pessoas, combinando com 'vamos'. Nós vamos ao parque amanhã."},
-    {id:8, conteudo_bncc:"Pronome oblíquo",
-     pergunta:"Na frase 'A professora me chamou', a palavra 'me' é um:",
-     opcoes:{A:"Pronome pessoal do caso reto.",B:"Pronome oblíquo.",C:"Verbo.",D:"Substantivo."},
-     correta:"B", feedback:"'Me' é um pronome oblíquo. Outros exemplos: te, se, o, a, nos, lhe."},
-    {id:9, conteudo_bncc:"Pronome oblíquo",
-     pergunta:"Qual das palavras abaixo é um pronome oblíquo?",
-     opcoes:{A:"Ela.",B:"Nós.",C:"Te.",D:"Eu."},
-     correta:"C", feedback:"'Te' é um pronome oblíquo (Ex: 'Eu te amo'). Já ela, nós e eu são pronomes do caso reto."},
-    {id:10, conteudo_bncc:"Pronome demonstrativo",
-     pergunta:"Na frase 'Este livro é meu', a palavra 'Este' indica algo que está:",
-     opcoes:{A:"Longe de quem fala.",B:"Perto de quem fala.",C:"Escondido.",D:"No passado."},
-     correta:"B", feedback:"'Este' é um pronome demonstrativo que indica algo PERTO de quem fala."},
-    {id:11, conteudo_bncc:"Pronome demonstrativo",
-     pergunta:"Qual das opções abaixo é um pronome demonstrativo?",
-     opcoes:{A:"Aquele.",B:"Correr.",C:"Bonito.",D:"Nós."},
-     correta:"A", feedback:"'Aquele' é um pronome demonstrativo (indica algo distante). Também: este, esse, aquilo, isto, isso."},
-    {id:12, conteudo_bncc:"Ortografia",
-     pergunta:"Qual é a forma CORRETA de escrever a palavra?",
-     opcoes:{A:"Caza.",B:"Casa.",C:"Kaza.",D:"Cassa."},
-     correta:"B", feedback:"A forma correta é 'casa', com um só 's', que tem som de 'z' entre vogais."},
-    {id:13, conteudo_bncc:"Ortografia",
-     pergunta:"Complete corretamente: 'A criança comeu um pe___e no almoço.'",
-     opcoes:{A:"pexe.",B:"peische.",C:"peixe.",D:"peicxe."},
-     correta:"C", feedback:"A forma correta é 'peixe', escrita com 'x'. É uma palavra que devemos memorizar."},
-    {id:14, conteudo_bncc:"Formação de palavras",
-     pergunta:"A palavra 'livraria' foi formada a partir de qual palavra?",
-     opcoes:{A:"Livre.",B:"Livro.",C:"Liso.",D:"Luva."},
-     correta:"B", feedback:"'Livraria' vem de 'livro'. É o lugar onde se vendem livros. Uma palavra deu origem a outra."},
-    {id:15, conteudo_bncc:"Formação de palavras",
-     pergunta:"Qual palavra pertence à mesma família de 'flor'?",
-     opcoes:{A:"Floresta.",B:"Florista.",C:"Foca.",D:"Faca."},
-     correta:"B", feedback:"'Florista' vem de 'flor' (pessoa que vende flores). É da mesma família de palavras."},
-    {id:16, conteudo_bncc:"Palavras com G e J antes de E e I",
-     pergunta:"Complete corretamente: 'A ___irafa é um animal muito alto.'",
-     opcoes:{A:"jirafa.",B:"girafa.",C:"gyrafa.",D:"jhirafa."},
-     correta:"B", feedback:"Escreve-se 'girafa', com 'g' antes de 'i'. O 'g' antes de 'e' e 'i' tem som de 'j'."},
-    {id:17, conteudo_bncc:"Palavras com G e J antes de E e I",
-     pergunta:"Qual palavra está escrita corretamente?",
-     opcoes:{A:"Jeito.",B:"Geito.",C:"Jheito.",D:"Gueito."},
-     correta:"A", feedback:"A forma correta é 'jeito', escrita com 'j'. É uma palavra que devemos memorizar."},
-    {id:18, conteudo_bncc:"Pontuação - vírgula em termos explicativos",
-     pergunta:"Leia: 'O Brasil, país da América do Sul, é muito grande.' Para que servem as vírgulas na frase?",
-     opcoes:{A:"Para separar uma explicação.",B:"Para terminar a frase.",C:"Para fazer uma pergunta.",D:"Para nada."},
-     correta:"A", feedback:"As vírgulas separam a explicação 'país da América do Sul', que dá mais informação sobre o Brasil."},
-    {id:19, conteudo_bncc:"Pontuação - vírgula em termos explicativos",
-     pergunta:"Qual frase usa a vírgula para separar uma explicação?",
-     opcoes:{A:"Comprei pão leite e ovos.",B:"A baleia, maior animal do mundo, vive no mar.",C:"Você gosta de sorvete?",D:"Que dia lindo!"},
-     correta:"B", feedback:"Em 'A baleia, maior animal do mundo, vive no mar', as vírgulas separam uma explicação sobre a baleia."},
-    {id:20, conteudo_bncc:"Palavras com terminação -agem",
-     pergunta:"Qual palavra com a terminação '-agem' está escrita corretamente?",
-     opcoes:{A:"Viajem.",B:"Viagem.",C:"Viajeem.",D:"Viagen."},
-     correta:"B", feedback:"O substantivo escreve-se 'viagem', com 'g'. Palavras terminadas em '-agem' são escritas com 'g'."},
-    {id:21, conteudo_bncc:"Palavras com terminação -agem",
-     pergunta:"Complete: 'A ___ da casa estava muito suja.'",
-     opcoes:{A:"garajem.",B:"garagem.",C:"garagen.",D:"garaje."},
-     correta:"B", feedback:"Escreve-se 'garagem', com terminação '-agem' (sempre com 'g')."},
-    {id:22, conteudo_bncc:"Pontuação - aspas simples",
-     pergunta:"Na frase: Ela disse: 'Chegarei cedo.' As aspas foram usadas para:",
-     opcoes:{A:"Destacar a fala exata de alguém.",B:"Fazer uma pergunta.",C:"Somar números.",D:"Terminar o texto."},
-     correta:"A", feedback:"As aspas destacam a fala exata da pessoa, mostrando exatamente o que ela disse."},
-    {id:23, conteudo_bncc:"Coesão",
-     pergunta:"Leia: 'Pedro chegou. ___ estava muito cansado.' Qual palavra liga bem as duas frases?",
-     opcoes:{A:"Ele.",B:"Nós.",C:"Elas.",D:"Eu."},
-     correta:"A", feedback:"'Ele' se refere a Pedro e liga as frases, evitando repetir o nome. Isso é a coesão do texto."},
-    {id:24, conteudo_bncc:"Coesão",
-     pergunta:"Qual palavra abaixo serve para LIGAR ideias em um texto?",
-     opcoes:{A:"Mas.",B:"Cadeira.",C:"Verde.",D:"Correr."},
-     correta:"A", feedback:"'Mas' é uma palavra que liga ideias, dando sentido de oposição. Ela ajuda na coesão do texto."},
-    {id:25, conteudo_bncc:"Processo de formação de palavras",
-     pergunta:"A palavra 'infeliz' foi formada acrescentando 'in-' à palavra 'feliz'. O que 'in-' significa aqui?",
-     opcoes:{A:"Muito feliz.",B:"O contrário, negação (não feliz).",C:"Feliz de novo.",D:"Um lugar."},
-     correta:"B", feedback:"O prefixo 'in-' dá ideia de negação. 'Infeliz' significa 'não feliz'. Assim se formam novas palavras."},
-    {id:26, conteudo_bncc:"Variação linguística",
-     pergunta:"O que é variação linguística?",
-     opcoes:{A:"As diferentes formas de falar em cada região ou grupo.",B:"Um erro grave de português.",C:"Uma língua estrangeira.",D:"Um tipo de número."},
-     correta:"A", feedback:"Variação linguística são as diferentes maneiras de falar de acordo com a região, idade ou grupo. Todas têm valor."},
-    {id:27, conteudo_bncc:"Palavras com OU",
-     pergunta:"Complete corretamente: 'Eu ___ um doce na festa.'",
-     opcoes:{A:"comi",B:"ganhô",C:"ganhou",D:"ganho"},
-     correta:"C", feedback:"Escreve-se 'ganhou', com 'ou' no final. É a forma correta do verbo no passado."},
-    {id:28, conteudo_bncc:"Palavras com OU",
-     pergunta:"Qual palavra está escrita corretamente com 'ou'?",
-     opcoes:{A:"Vassora.",B:"Vassoura.",C:"Vasora.",D:"Vasoura."},
-     correta:"B", feedback:"A forma correta é 'vassoura', escrita com 'ss' e 'ou'."},
-    {id:29, conteudo_bncc:"Palavras com EI",
-     pergunta:"Qual palavra está escrita corretamente com 'ei'?",
-     opcoes:{A:"Manteiga.",B:"Mantega.",C:"Manteigua.",D:"Manteica."},
-     correta:"A", feedback:"A forma correta é 'manteiga', escrita com 'ei'."},
-    {id:30, conteudo_bncc:"Palavras com terminação -ável",
-     pergunta:"Qual palavra com a terminação '-ável' está escrita corretamente?",
-     opcoes:{A:"Amavel.",B:"Amável.",C:"Amavél.",D:"Amaveu."},
-     correta:"B", feedback:"Escreve-se 'amável', com acento no 'a'. Palavras terminadas em '-ável' são paroxítonas acentuadas."}
-  ]
+  {
+    "id": 1,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP08 - Gêneros textuais (apólogo)",
+    "pergunta": "O apólogo é um texto que ensina uma lição de moral, geralmente usando ANIMAIS ou OBJETOS como personagens que falam e agem como pessoas. Qual é o objetivo principal de um apólogo?",
+    "opcoes": {
+      "A": "Divertir com piadas sem nenhuma mensagem",
+      "B": "Transmitir uma lição de moral ou ensinamento",
+      "C": "Anunciar um produto para venda",
+      "D": "Contar fatos históricos reais"
+    },
+    "resposta_correta": "B",
+    "feedback": "O apólogo usa personagens como animais ou objetos para ensinar uma lição de vida, como nas fábulas.",
+    "simulado": true
+  },
+  {
+    "id": 2,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP08 - Gêneros textuais (apólogo)",
+    "pergunta": "Em um apólogo sobre 'A Formiga e a Cigarra', qual é a lição que a história costuma ensinar?",
+    "opcoes": {
+      "A": "É importante se divertir sem pensar no futuro",
+      "B": "Devemos trabalhar e nos planejar para os momentos difíceis",
+      "C": "Formigas são mais fortes que cigarras",
+      "D": "O verão é a melhor estação do ano"
+    },
+    "resposta_correta": "B",
+    "feedback": "A fábula/apólogo da formiga e da cigarra ensina sobre a importância do trabalho e do planejamento.",
+    "simulado": true
+  },
+  {
+    "id": 3,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP09 - Gêneros textuais (cartum)",
+    "pergunta": "O cartum é um desenho com humor que costuma fazer uma crítica engraçada sobre algum assunto. Qual característica é típica do cartum?",
+    "opcoes": {
+      "A": "Textos muito longos sem imagens",
+      "B": "Desenho com humor e, às vezes, crítica social",
+      "C": "Receita de comida com instruções",
+      "D": "Lista de compras do supermercado"
+    },
+    "resposta_correta": "B",
+    "feedback": "O cartum é um gênero visual que usa humor para fazer uma crítica ou comentário sobre algo.",
+    "simulado": true
+  },
+  {
+    "id": 4,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP09 - Gêneros textuais (cartum)",
+    "pergunta": "Diferente da tirinha (que tem vários quadrinhos), o cartum geralmente é formado por:",
+    "opcoes": {
+      "A": "Vários quadrinhos em sequência",
+      "B": "Apenas uma cena (um único desenho)",
+      "C": "Somente texto, sem desenho",
+      "D": "Uma música com letra"
+    },
+    "resposta_correta": "B",
+    "feedback": "O cartum costuma trazer a mensagem em uma única imagem, sem necessidade de sequência de quadrinhos.",
+    "simulado": false
+  },
+  {
+    "id": 5,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP10 - Gêneros textuais (cartaz)",
+    "pergunta": "O cartaz é usado para divulgar informações de forma rápida e chamativa. Qual é a principal função de um cartaz?",
+    "opcoes": {
+      "A": "Contar uma longa história com muitos detalhes",
+      "B": "Chamar a atenção e informar algo rapidamente",
+      "C": "Explicar regras de um jogo com texto extenso",
+      "D": "Registrar dados pessoais em uma ficha"
+    },
+    "resposta_correta": "B",
+    "feedback": "O cartaz usa frases curtas, cores e imagens para atrair a atenção e passar uma informação rápida.",
+    "simulado": true
+  },
+  {
+    "id": 6,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP10 - Gêneros textuais (cartaz)",
+    "pergunta": "Um cartaz sobre uma campanha de vacinação deve conter, principalmente:",
+    "opcoes": {
+      "A": "Um texto longo e cheio de detalhes técnicos",
+      "B": "Letras pequenas e sem cores",
+      "C": "Frases curtas, letras grandes e imagens chamativas",
+      "D": "Apenas números e tabelas"
+    },
+    "resposta_correta": "C",
+    "feedback": "Cartazes precisam ser visualmente atrativos e de leitura rápida, com letras grandes e poucas palavras.",
+    "simulado": false
+  },
+  {
+    "id": 7,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP02 - Tempos verbais (presente)",
+    "pergunta": "Na frase 'Eu BRINCO no parque todos os dias', o verbo destacado está no tempo:",
+    "opcoes": {
+      "A": "Passado",
+      "B": "Presente",
+      "C": "Futuro",
+      "D": "Imperativo"
+    },
+    "resposta_correta": "B",
+    "feedback": "O verbo 'brinco' indica uma ação que acontece agora, no presente.",
+    "simulado": true
+  },
+  {
+    "id": 8,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP02 - Tempos verbais (passado)",
+    "pergunta": "Na frase 'Ontem, nós VIAJAMOS para a praia', o verbo destacado está no tempo:",
+    "opcoes": {
+      "A": "Presente",
+      "B": "Passado",
+      "C": "Futuro",
+      "D": "Nenhum dos anteriores"
+    },
+    "resposta_correta": "B",
+    "feedback": "A palavra 'ontem' e o verbo 'viajamos' indicam uma ação que já aconteceu, no passado.",
+    "simulado": true
+  },
+  {
+    "id": 9,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP02 - Tempos verbais (futuro)",
+    "pergunta": "Na frase 'No próximo ano, eu ESTUDAREI em uma nova escola', o verbo destacado está no tempo:",
+    "opcoes": {
+      "A": "Presente",
+      "B": "Passado",
+      "C": "Futuro",
+      "D": "Imperativo"
+    },
+    "resposta_correta": "C",
+    "feedback": "A expressão 'no próximo ano' e o verbo 'estudarei' indicam uma ação que ainda vai acontecer, no futuro.",
+    "simulado": true
+  },
+  {
+    "id": 10,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP05 - Verbo no modo imperativo",
+    "pergunta": "Releia a frase: 'PAGUE suas contas em dia e EVITE a inclusão de seu nome no Serasa.' As palavras em destaque estão no modo:",
+    "opcoes": {
+      "A": "Indicativo",
+      "B": "Imperativo",
+      "C": "Subjuntivo",
+      "D": "Infinitivo"
+    },
+    "resposta_correta": "B",
+    "feedback": "O modo imperativo é usado para dar ordens, conselhos ou pedidos, como em 'pague' e 'evite'.",
+    "simulado": true
+  },
+  {
+    "id": 11,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP05 - Verbo no modo imperativo",
+    "pergunta": "Qual das frases abaixo está no modo IMPERATIVO (dando uma ordem ou conselho)?",
+    "opcoes": {
+      "A": "Maria foi ao mercado ontem.",
+      "B": "Não abra a porta da geladeira sem necessidade.",
+      "C": "Eu gosto muito de chocolate.",
+      "D": "Ela estudará para a prova amanhã."
+    },
+    "resposta_correta": "B",
+    "feedback": "A frase 'Não abra' dá uma instrução/conselho, por isso está no modo imperativo.",
+    "simulado": false
+  },
+  {
+    "id": 12,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP01 - Pronomes possessivos",
+    "pergunta": "Na frase 'MINHA mãe gosta de flores', a palavra destacada é um pronome possessivo que indica:",
+    "opcoes": {
+      "A": "Lugar onde a mãe está",
+      "B": "Posse, ou seja, de quem é a mãe",
+      "C": "Tempo da ação",
+      "D": "Quantidade de flores"
+    },
+    "resposta_correta": "B",
+    "feedback": "Pronomes possessivos como 'minha', 'nosso', 'seu' indicam a quem pertence algo ou alguém.",
+    "simulado": true
+  },
+  {
+    "id": 13,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP01 - Pronomes possessivos",
+    "pergunta": "Complete a frase corretamente com um pronome possessivo: 'Aquela é ___ professora.'",
+    "opcoes": {
+      "A": "a",
+      "B": "nossa",
+      "C": "de",
+      "D": "para"
+    },
+    "resposta_correta": "B",
+    "feedback": "'Nossa' é um pronome possessivo que indica que a professora pertence ao grupo (nós).",
+    "simulado": false
+  },
+  {
+    "id": 14,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP03 - Advérbios de lugar",
+    "pergunta": "Releia: 'NO BRASIL a energia elétrica vem principalmente das usinas hidrelétricas.' A expressão destacada indica uma circunstância de:",
+    "opcoes": {
+      "A": "Tempo",
+      "B": "Modo",
+      "C": "Lugar",
+      "D": "Intensidade"
+    },
+    "resposta_correta": "C",
+    "feedback": "'No Brasil' indica o LUGAR onde acontece o fato descrito na frase.",
+    "simulado": true
+  },
+  {
+    "id": 15,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP03 - Advérbios de tempo",
+    "pergunta": "Na frase 'HOJE é possível comprar celulares muito tecnológicos', a palavra destacada indica uma circunstância de:",
+    "opcoes": {
+      "A": "Lugar",
+      "B": "Tempo",
+      "C": "Modo",
+      "D": "Negação"
+    },
+    "resposta_correta": "B",
+    "feedback": "'Hoje' é um advérbio de TEMPO, pois indica quando a ação acontece.",
+    "simulado": true
+  },
+  {
+    "id": 16,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP03 - Advérbios de modo",
+    "pergunta": "Na frase 'A tecnologia avançou RAPIDAMENTE nos últimos anos', a palavra destacada indica uma circunstância de:",
+    "opcoes": {
+      "A": "Lugar",
+      "B": "Tempo",
+      "C": "Modo",
+      "D": "Quantidade"
+    },
+    "resposta_correta": "C",
+    "feedback": "'Rapidamente' indica COMO a ação aconteceu, por isso é um advérbio de modo.",
+    "simulado": true
+  },
+  {
+    "id": 17,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP11 - Elementos do poema (estrofe e verso)",
+    "pergunta": "Em um poema, cada linha escrita é chamada de:",
+    "opcoes": {
+      "A": "Estrofe",
+      "B": "Verso",
+      "C": "Rima",
+      "D": "Título"
+    },
+    "resposta_correta": "B",
+    "feedback": "Cada linha de um poema é chamada de verso. Um conjunto de versos forma uma estrofe.",
+    "simulado": true
+  },
+  {
+    "id": 18,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP11 - Elementos do poema (estrofe e verso)",
+    "pergunta": "Em um poema, um conjunto de versos agrupados é chamado de:",
+    "opcoes": {
+      "A": "Verso",
+      "B": "Rima",
+      "C": "Estrofe",
+      "D": "Prosa"
+    },
+    "resposta_correta": "C",
+    "feedback": "A estrofe é o conjunto de versos separados por um espaço em branco dentro do poema.",
+    "simulado": true
+  },
+  {
+    "id": 19,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP12 - Ortografia (uso de S e Z)",
+    "pergunta": "Qual das palavras abaixo está escrita CORRETAMENTE?",
+    "opcoes": {
+      "A": "Cazinha",
+      "B": "Casinha",
+      "C": "Cazinho",
+      "D": "Cassinha"
+    },
+    "resposta_correta": "B",
+    "feedback": "A forma correta é 'casinha', com S, pois é o diminutivo de 'casa'.",
+    "simulado": true
+  },
+  {
+    "id": 20,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP12 - Ortografia (uso de X e CH)",
+    "pergunta": "Qual das palavras abaixo está escrita CORRETAMENTE?",
+    "opcoes": {
+      "A": "Cheiro",
+      "B": "Xeiro",
+      "C": "Cheirro",
+      "D": "Xeirro"
+    },
+    "resposta_correta": "A",
+    "feedback": "A palavra correta é 'cheiro', escrita com CH.",
+    "simulado": false
+  },
+  {
+    "id": 21,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP12 - Ortografia (acentuação)",
+    "pergunta": "Qual palavra está escrita CORRETAMENTE, com o acento no lugar certo?",
+    "opcoes": {
+      "A": "Sabado",
+      "B": "Sábado",
+      "C": "Sabadó",
+      "D": "Sabádo"
+    },
+    "resposta_correta": "B",
+    "feedback": "A forma correta é 'sábado', com acento agudo na primeira sílaba.",
+    "simulado": true
+  },
+  {
+    "id": 22,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP12 - Ortografia (uso de M e N antes de consoante)",
+    "pergunta": "Qual das palavras abaixo está escrita CORRETAMENTE?",
+    "opcoes": {
+      "A": "Tanbém",
+      "B": "Também",
+      "C": "Tambem",
+      "D": "Tanbêm"
+    },
+    "resposta_correta": "B",
+    "feedback": "Antes de B e P usamos a letra M: 'também' é a forma correta, com acento circunflexo.",
+    "simulado": true
+  },
+  {
+    "id": 23,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP06 - Interpretação textual",
+    "pergunta": "Um texto que conta fatos históricos reais, como a invenção da lâmpada elétrica, é classificado como um texto:",
+    "opcoes": {
+      "A": "De ficção (inventado)",
+      "B": "Informativo (baseado em fatos reais)",
+      "C": "Poético (com rimas)",
+      "D": "Publicitário (para vender algo)"
+    },
+    "resposta_correta": "B",
+    "feedback": "Textos que relatam fatos históricos e reais são classificados como informativos.",
+    "simulado": false
+  },
+  {
+    "id": 24,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP01 - Pronomes possessivos (reescrita de frases)",
+    "pergunta": "Qual é a forma correta de reescrever 'A boneca de Maria está na cama' usando um pronome possessivo?",
+    "opcoes": {
+      "A": "A boneca da Maria está na cama.",
+      "B": "A boneca dela está na cama.",
+      "C": "A boneca sua está na cama.",
+      "D": "A boneca nela está na cama."
+    },
+    "resposta_correta": "B",
+    "feedback": "Usamos o pronome possessivo 'dela' para substituir 'de Maria', indicando posse.",
+    "simulado": false
+  },
+  {
+    "id": 25,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP08 - Gêneros textuais (apólogo x fábula)",
+    "pergunta": "O apólogo é muito parecido com outro gênero textual que você já conhece. Qual é esse gênero?",
+    "opcoes": {
+      "A": "A notícia",
+      "B": "A fábula",
+      "C": "A receita",
+      "D": "O bilhete"
+    },
+    "resposta_correta": "B",
+    "feedback": "O apólogo é muito semelhante à fábula: ambos usam personagens não humanos para ensinar uma lição.",
+    "simulado": false
+  },
+  {
+    "id": 26,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP09 - Gêneros textuais (cartum e crítica social)",
+    "pergunta": "Um cartum sobre o desperdício de água geralmente tem o objetivo de:",
+    "opcoes": {
+      "A": "Vender produtos relacionados à água",
+      "B": "Criticar, de forma engraçada, o mau uso da água",
+      "C": "Ensinar uma receita com água",
+      "D": "Contar uma história de amor"
+    },
+    "resposta_correta": "B",
+    "feedback": "Cartuns costumam usar o humor para criticar comportamentos, como o desperdício de água.",
+    "simulado": false
+  },
+  {
+    "id": 27,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP10 - Gêneros textuais (cartaz e função social)",
+    "pergunta": "Onde normalmente encontramos cartazes?",
+    "opcoes": {
+      "A": "Dentro de um livro de receitas",
+      "B": "Em muros, postes e paredes, para serem vistos rapidamente",
+      "C": "Apenas em diários pessoais",
+      "D": "Somente em cartas formais"
+    },
+    "resposta_correta": "B",
+    "feedback": "Cartazes são colocados em locais públicos e visíveis, pois precisam ser lidos rapidamente por quem passa.",
+    "simulado": false
+  },
+  {
+    "id": 28,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP02 - Tempos verbais (identificação em texto)",
+    "pergunta": "Na frase 'As flores DANÇAM no vento', o verbo em destaque está no tempo:",
+    "opcoes": {
+      "A": "Passado",
+      "B": "Presente",
+      "C": "Futuro",
+      "D": "Imperativo"
+    },
+    "resposta_correta": "B",
+    "feedback": "O verbo 'dançam' indica uma ação que ocorre no momento presente.",
+    "simulado": false
+  },
+  {
+    "id": 29,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP12 - Ortografia (palavras com SS)",
+    "pergunta": "Qual das palavras abaixo está escrita CORRETAMENTE?",
+    "opcoes": {
+      "A": "Passaro",
+      "B": "Pássaro",
+      "C": "Pássaro ",
+      "D": "Pasaro"
+    },
+    "resposta_correta": "B",
+    "feedback": "A forma correta é 'pássaro', com acento agudo e apenas um S.",
+    "simulado": false
+  },
+  {
+    "id": 30,
+    "materia": "Português",
+    "conteudo_bncc": "EF04LP05 - Verbo no modo imperativo (identificação)",
+    "pergunta": "Releia: 'NÃO ABRA a porta da geladeira sem necessidade.' O verbo em destaque está no modo:",
+    "opcoes": {
+      "A": "Indicativo",
+      "B": "Imperativo",
+      "C": "Subjuntivo",
+      "D": "Gerúndio"
+    },
+    "resposta_correta": "B",
+    "feedback": "'Não abra' é uma ordem/instrução negativa, por isso o verbo está no modo imperativo.",
+    "simulado": true
+  }
+]
 };
 
 const MATERIAS = {
